@@ -751,6 +751,7 @@ img {
   grid-template-rows: 0.88fr 1.12fr;
   gap: 18px;
   padding: 12px;
+  transform: translateX(-60px);
 }
 
 .about-photo {
