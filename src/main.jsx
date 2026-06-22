@@ -981,12 +981,7 @@ function SocialProjectSection({ section, index }) {
   }
 
   if (index === 1) {
-    return (
-      <section id={sectionId} className="project-section-block social-case-block">
-        <h2>{section.title}</h2>
-        <p>{section.text}</p>
-      </section>
-    );
+    return null;
   }
 
   if (index === 2) {
