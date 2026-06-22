@@ -858,6 +858,319 @@ function InProgressPage() {
   );
 }
 
+const socialMethods = [
+  { title: '半结构化访谈', text: '了解用户使用兴趣社交产品的动机和痛点。' },
+  { title: '竞品体验走查', text: '分析 Soul、TT语音、直播类产品的社交路径。' },
+  { title: '任务走查', text: '模拟用户从首页到房间、进入互动、发起消息的完整路径。' },
+  { title: '用户反馈归纳', text: '整理发现效率、匹配判断、破冰体验、直播参与等问题。' },
+];
+
+const socialSegments = [
+  { title: '陪伴型用户', text: '无聊、想找人聊天，关注在线状态、回复速度和即时回应。' },
+  { title: '兴趣型用户', text: '找同好、聊共同兴趣，关注兴趣标签、话题和动态内容。' },
+  { title: '游戏型用户', text: '找搭子、开黑、语音房互动，关注游戏类型、房间人数和房主状态。' },
+  { title: '娱乐型用户', text: '看直播、参与活动、围观热闹，关注直播热度、主播状态和活动奖励。' },
+];
+
+const socialFlow = [
+  '开始进入首页',
+  '选择兴趣标签 / 浏览推荐',
+  '查看用户卡片或房间卡片',
+  '判断兴趣、在线状态、房间氛围',
+  '点击打招呼 / 进入房间',
+  '系统提供破冰话题或互动引导',
+  '消息页承接对话',
+  '关注、继续聊天或加入房间',
+];
+
+const socialStrategies = [
+  {
+    number: '策略 1',
+    title: '重构发现路径',
+    text: '将首页从“功能入口集合”调整为“社交发现入口”，优先展示推荐用户、推荐房间和兴趣圈标签。',
+    blocks: ['旧逻辑路径', '新逻辑路径', '最终效果'],
+  },
+  {
+    number: '策略 2',
+    title: '增强判断信息',
+    text: '在用户点击前补足在线状态、兴趣标签、共同兴趣和房间氛围，减少进入后的无效试错。',
+    blocks: ['用户想找人 / 房间', '目标不明确', '目标明确', '首页推荐', '广场探索'],
+  },
+  {
+    number: '策略 3',
+    title: '降低破冰压力',
+    text: '通过共同兴趣、推荐话题和快捷问候，让用户不用直接进入空聊天。',
+    blocks: ['用户卡片', '点击打招呼', '破冰弹窗', '发送问候', '消息页承接'],
+  },
+  {
+    number: '策略 4',
+    title: '强化关系承接',
+    text: '让消息页承担社交关系入口，把一次轻互动继续转化为聊天、关注或进入房间。',
+    blocks: ['打招呼', '对方回复', '正式聊天', '关注 / 进入房间 / 建立关系'],
+  },
+];
+
+const socialTestBars = [
+  { label: '首页发现效率', value: 62 },
+  { label: '卡片判断充分度', value: 72 },
+  { label: '破冰引导清晰度', value: 56 },
+  { label: '消息承接清晰度', value: 50 },
+];
+
+const socialOutcomes = [
+  { text: '路径理解评分由 3.15/5 提升至 4.18/5。', value: '3.15→4.18' },
+  { text: '点击前判断效率提升。', value: '+20%' },
+  { text: '测试、访谈与建议参与人次。', value: '30+' },
+];
+
+function SocialPhoneMock({ className = '' }) {
+  return (
+    <div className={`social-phone-mock ${className}`} aria-hidden="true">
+      <span />
+      <span />
+      <span />
+    </div>
+  );
+}
+
+function SocialHeroMock() {
+  return (
+    <div className="project-cover social-hero-mock" aria-hidden="true">
+      <SocialPhoneMock />
+      <span className="social-blob social-blob-a" />
+      <span className="social-blob social-blob-b" />
+      <span className="social-blob social-blob-c" />
+      <span className="social-blob social-blob-d" />
+    </div>
+  );
+}
+
+function SocialProjectSection({ section, index }) {
+  const sectionId = `project-section-${index + 1}`;
+
+  if (index === 0) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+        <div className="social-problem-layout">
+          <div className="social-path-card">
+            <SocialPhoneMock />
+            <div className="social-path-chain">
+              <span>发现内容</span>
+              <i />
+              <span>判断对象</span>
+              <i />
+              <span>发起对话</span>
+              <i />
+              <span>聊不起</span>
+            </div>
+          </div>
+          <div className="social-problem-copy">
+            <div className="social-pill-row">
+              <span>选择纠结</span>
+              <span>社交焦虑</span>
+              <span>破冰成本</span>
+            </div>
+            <h3>问题背景</h3>
+            <p>从功能丰富到体验聚焦：兴趣社交产品的核心体验矛盾</p>
+            <strong>矛盾一：内容入口多，但用户不知道从哪里开始</strong>
+            <strong>矛盾二：可互动对象多，但判断依据不足</strong>
+            <strong>矛盾三：可以聊天，但陌生人破冰成本高</strong>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+        <div className="social-note-grid">
+          <div>
+            <strong>{section.noteLabel}</strong>
+            <p>{section.noteText}</p>
+          </div>
+          <ul>
+            {section.bullets.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <div className="social-research-top">
+          <strong>200+问卷显示用户对同兴趣社交需求感兴趣，但当前社交软件聚焦性过于泛导致体验不佳</strong>
+          <div className="social-survey-card">
+            <div>
+              <span>研究对象</span>
+              <strong>18-30 岁年轻用户</strong>
+            </div>
+            <p>在兴趣社交产品中，你最容易在哪一步放弃互动？</p>
+            <ul>
+              <li>A. 找不到合适的人或房间</li>
+              <li>B. 不确定对方 / 房间是否合适</li>
+              <li>C. 想互动，但不知道怎么开口</li>
+            </ul>
+            <span className="social-donut" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="social-method-grid">
+          {socialMethods.map((method) => (
+            <article key={method.title}>
+              <p>{method.text}</p>
+              <strong>{method.title}</strong>
+            </article>
+          ))}
+        </div>
+        <div className="social-dimensions">
+          <div>
+            <span>用户为什么进入产品</span>
+            <span>用户如何寻找感兴趣的人或房间</span>
+            <span>用户如何判断是否互动</span>
+            <span>用户为什么放弃聊天</span>
+          </div>
+          <strong>Research dimensions</strong>
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 3) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <div className="social-heading-row">
+          <h2>{section.title}</h2>
+          <strong>谁在<br />使用</strong>
+        </div>
+        <div className="social-segment-grid">
+          {socialSegments.map((segment) => (
+            <article key={segment.title}>
+              <h3>{segment.title}</h3>
+              <p>{segment.text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="social-caption">不同社交动机下的行为差异</p>
+        <div className="social-flow-header">
+          <strong>Flows</strong>
+          <p>{section.noteText}</p>
+        </div>
+        <div className="social-flow-map">
+          {socialFlow.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 4) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <h3 className="social-question">如何让兴趣社交用户更快找到合适的人 / 房间，并更低压力地完成首次互动？</h3>
+        <div className="social-strategy-list">
+          {socialStrategies.map((strategy) => (
+            <article key={strategy.number} className="social-strategy-item">
+              <div>
+                <strong>{strategy.number}：</strong>
+                <h3>{strategy.title}</h3>
+                <p>{strategy.text}</p>
+              </div>
+              <div className="social-strategy-board">
+                {strategy.blocks.map((block) => (
+                  <span key={block}>{block}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 5) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+        <h3 className="social-function-title">Function Overview</h3>
+        <div className="social-function-overview">
+          {['首页推荐', '兴趣标签', '用户卡片', '房间卡片', '破冰引导', '消息承接', '关系入口'].map((item, itemIndex) => (
+            <span key={item} style={{ '--offset': `${itemIndex % 2 === 0 ? 0 : 30}px` }}>
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  if (index === 6) {
+    return (
+      <section id={sectionId} className="project-section-block social-case-block">
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+        <div className="social-bar-chart">
+          {socialTestBars.map((bar) => (
+            <div key={bar.label}>
+              <span>{bar.label}</span>
+              <i style={{ width: `${bar.value}%` }} />
+            </div>
+          ))}
+        </div>
+        <div className="social-before-after">
+          <div>
+            <p>首轮方案路径分散，用户在发现对象、判断是否合适、发起互动时仍存在理解成本。</p>
+            <span>路径分散</span>
+            <span>体验断点</span>
+            <span>破冰困难</span>
+          </div>
+          <div className="social-before-after-visual" aria-hidden="true">
+            <strong>Before</strong>
+            <strong>After</strong>
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section id={sectionId} className="project-section-block social-case-block">
+      <h2>{section.title}</h2>
+      <div className="social-showcase">
+        <div className="social-showcase-large" aria-hidden="true">
+          {Array.from({ length: 5 }).map((_, itemIndex) => (
+            <SocialPhoneMock key={itemIndex} />
+          ))}
+        </div>
+        <div aria-hidden="true" />
+        <div aria-hidden="true" />
+      </div>
+      <div className="social-outcome-grid">
+        {socialOutcomes.map((outcome) => (
+          <article key={outcome.value}>
+            <p>{outcome.text}</p>
+            <strong>{outcome.value}</strong>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
   const card = t.cards.find((item) => item.href === `/projects/${slug}`);
@@ -904,9 +1217,13 @@ function ProjectDetail({ t, lang, slug }) {
                 </div>
               </div>
 
-              <div className="project-cover">
-                <img src={card.image} alt="" />
-              </div>
+              {slug === 'social-app' ? (
+                <SocialHeroMock />
+              ) : (
+                <div className="project-cover">
+                  <img src={card.image} alt="" />
+                </div>
+              )}
 
               <div className="project-summary">
                 {project.summary.map((item) => (
@@ -918,36 +1235,40 @@ function ProjectDetail({ t, lang, slug }) {
               </div>
             </header>
 
-            {project.sections.map((section, index) => (
-              <section key={section.title} id={`project-section-${index + 1}`} className="project-section-block">
-                <h2>{section.title}</h2>
-                <p>{section.text}</p>
-                {section.noteLabel && section.noteText ? (
-                  <div className="project-note">
-                    <strong>{section.noteLabel}:</strong>
-                    <span>{section.noteText}</span>
+            {project.sections.map((section, index) =>
+              slug === 'social-app' ? (
+                <SocialProjectSection key={section.title} section={section} index={index} />
+              ) : (
+                <section key={section.title} id={`project-section-${index + 1}`} className="project-section-block">
+                  <h2>{section.title}</h2>
+                  <p>{section.text}</p>
+                  {section.noteLabel && section.noteText ? (
+                    <div className="project-note">
+                      <strong>{section.noteLabel}:</strong>
+                      <span>{section.noteText}</span>
+                    </div>
+                  ) : null}
+                  <ul>
+                    {section.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="project-media-card" aria-hidden="true">
+                    <img src={card.image} alt="" />
                   </div>
-                ) : null}
-                <ul>
-                  {section.bullets.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <div className="project-media-card" aria-hidden="true">
-                  <img src={card.image} alt="" />
-                </div>
-                <div className="project-placeholder-grid" aria-hidden="true">
-                  <div className="project-placeholder-card">
-                    <span>01</span>
-                    <strong>Key Screen Placeholder</strong>
+                  <div className="project-placeholder-grid" aria-hidden="true">
+                    <div className="project-placeholder-card">
+                      <span>01</span>
+                      <strong>Key Screen Placeholder</strong>
+                    </div>
+                    <div className="project-placeholder-card">
+                      <span>02</span>
+                      <strong>Process / Insight Placeholder</strong>
+                    </div>
                   </div>
-                  <div className="project-placeholder-card">
-                    <span>02</span>
-                    <strong>Process / Insight Placeholder</strong>
-                  </div>
-                </div>
-              </section>
-            ))}
+                </section>
+              ),
+            )}
           </div>
         </div>
 
