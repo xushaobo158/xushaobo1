@@ -1211,6 +1211,7 @@ img {
   font-weight: 700;
   line-height: 1.06;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .project-intro {
@@ -1502,9 +1503,25 @@ img {
   font-size: 0.95rem;
 }
 
+.social-project-content {
+  gap: 72px;
+}
+
+.social-project-content .project-hero {
+  gap: 28px;
+}
+
 .social-case-block {
-  gap: 18px;
+  min-height: 430px;
+  align-content: start;
+  gap: 30px;
+  padding-bottom: 8px;
   scroll-margin-top: 112px;
+}
+
+.social-detail-page .project-tags span,
+.social-detail-page .project-summary-item span {
+  border: 0;
 }
 
 .social-case-block h3 {
@@ -1514,10 +1531,11 @@ img {
 .social-hero-mock {
   position: relative;
   display: grid;
-  min-height: 430px;
+  min-height: 500px;
   place-items: center;
   overflow: hidden;
   border-radius: 12px;
+  border: 0;
   background:
     radial-gradient(circle at 50% 46%, rgba(255, 253, 248, 0.72), rgba(244, 238, 230, 0.82) 72%),
     rgba(244, 238, 230, 0.92);
@@ -1594,7 +1612,7 @@ img {
 .social-problem-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.76fr);
-  gap: 28px;
+  gap: 36px;
   align-items: stretch;
 }
 
@@ -1608,19 +1626,18 @@ img {
 .social-before-after-visual,
 .social-showcase-large,
 .social-showcase > div,
-.social-outcome-grid article,
-.social-note-grid {
-  border: 1px solid rgba(197, 83, 49, 0.1);
+.social-outcome-grid article {
+  border: 0;
   background: rgba(244, 238, 230, 0.9);
 }
 
 .social-path-card {
   display: grid;
-  min-height: 340px;
+  min-height: 390px;
   grid-template-columns: 0.8fr 1fr;
   align-items: center;
   gap: 22px;
-  padding: 34px;
+  padding: 38px 36px;
   border-radius: 12px;
 }
 
@@ -1663,7 +1680,7 @@ img {
   align-items: center;
   min-height: 30px;
   padding: 0 13px;
-  border: 1px solid rgba(197, 83, 49, 0.18);
+  border: 0;
   border-radius: 999px;
   background: rgba(255, 248, 241, 0.84);
   color: var(--accent);
@@ -1677,26 +1694,10 @@ img {
   line-height: 1.55;
 }
 
-.social-note-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.2fr);
-  gap: 24px;
-  padding: 24px;
-  border-radius: 12px;
-}
-
-.social-note-grid strong {
-  color: var(--accent);
-}
-
-.social-note-grid ul {
-  margin: 0;
-}
-
 .social-research-top {
   display: grid;
   grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.45fr);
-  gap: 28px;
+  gap: 36px;
   align-items: center;
 }
 
@@ -1709,7 +1710,7 @@ img {
 .social-survey-card {
   position: relative;
   display: grid;
-  min-height: 220px;
+  min-height: 260px;
   align-content: center;
   gap: 12px;
   padding: 28px 210px 28px 32px;
@@ -1754,12 +1755,12 @@ img {
 .social-method-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 24px;
 }
 
 .social-method-grid article {
   display: grid;
-  min-height: 132px;
+  min-height: 148px;
   align-content: end;
   gap: 12px;
   padding: 18px;
@@ -1782,7 +1783,7 @@ img {
 .social-dimensions {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(180px, 0.62fr);
-  gap: 28px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -1840,12 +1841,12 @@ img {
 .social-segment-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 26px;
   align-items: end;
 }
 
 .social-segment-grid article {
-  min-height: 180px;
+  min-height: 200px;
   padding: 22px 18px;
   border-radius: 12px;
 }
@@ -1882,13 +1883,13 @@ img {
 .social-flow-map {
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
-  gap: 32px 76px;
+  gap: 38px 76px;
 }
 
 .social-flow-map span {
   position: relative;
   display: grid;
-  min-height: 58px;
+  min-height: 64px;
   place-items: center;
   padding: 12px 14px;
   border-radius: 6px;
@@ -1926,7 +1927,7 @@ img {
 
 .social-strategy-list {
   display: grid;
-  gap: 48px;
+  gap: 64px;
 }
 
 .social-strategy-item {
@@ -1959,7 +1960,7 @@ img {
 
 .social-strategy-board {
   display: grid;
-  min-height: 292px;
+  min-height: 320px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   padding: 22px;
@@ -1993,13 +1994,13 @@ img {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 14px;
-  min-height: 236px;
+  min-height: 280px;
   align-items: start;
 }
 
 .social-function-overview span {
   display: grid;
-  min-height: 165px;
+  min-height: 198px;
   margin-top: var(--offset);
   place-items: center;
   border-radius: 8px;
@@ -2012,7 +2013,7 @@ img {
 .social-bar-chart {
   display: grid;
   gap: 22px;
-  padding: 42px 62px;
+  padding: 50px 64px;
   border-radius: 10px;
 }
 
@@ -2052,7 +2053,7 @@ img {
 .social-before-after-visual {
   position: relative;
   display: grid;
-  min-height: 340px;
+  min-height: 380px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 60px;
   padding: 48px 36px;
@@ -2114,7 +2115,7 @@ img {
 
 .social-showcase-large {
   display: grid;
-  min-height: 720px;
+  min-height: 760px;
   grid-column: 1 / -1;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 34px 58px;
@@ -2135,7 +2136,7 @@ img {
 }
 
 .social-showcase > div:not(.social-showcase-large) {
-  min-height: 340px;
+  min-height: 360px;
   border-radius: 12px;
 }
 
@@ -2147,7 +2148,7 @@ img {
 
 .social-outcome-grid article {
   display: grid;
-  min-height: 200px;
+  min-height: 220px;
   align-content: space-between;
   gap: 22px;
   padding: 26px;
@@ -2785,7 +2786,7 @@ img {
   }
 
   .project-copy h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.05rem, 10vw, 2.35rem);
   }
 
   .project-tags span,
@@ -2819,7 +2820,6 @@ img {
   }
 
   .social-path-card,
-  .social-note-grid,
   .social-method-grid,
   .social-segment-grid,
   .social-flow-map,

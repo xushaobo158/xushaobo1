@@ -222,9 +222,6 @@ const projectPageContent = {
           title: '问题背景',
           text:
             '从功能丰富到体验聚焦，兴趣社交产品的核心矛盾集中在三个层面：内容入口多，但用户不知道从哪里开始；可互动对象多，但判断依据不足；可以聊天，但陌生人破冰成本高。',
-          noteLabel: '用户社交路径断点',
-          noteText: '用户从“发现内容”到“判断对象”，再到“发起对话”的过程中缺少清晰提示和足够判断信息，导致聊不起来、留不下来。',
-          bullets: ['矛盾一：内容入口多，但起点不清晰', '矛盾二：对象很多，但判断成本高', '矛盾三：可以聊天，但破冰压力大'],
         },
         {
           title: '用户研究',
@@ -988,17 +985,6 @@ function SocialProjectSection({ section, index }) {
       <section id={sectionId} className="project-section-block social-case-block">
         <h2>{section.title}</h2>
         <p>{section.text}</p>
-        <div className="social-note-grid">
-          <div>
-            <strong>{section.noteLabel}</strong>
-            <p>{section.noteText}</p>
-          </div>
-          <ul>
-            {section.bullets.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
       </section>
     );
   }
@@ -1182,7 +1168,7 @@ function ProjectDetail({ t, lang, slug }) {
   if (!project || !card) return null;
 
   return (
-    <section className="project-page section-shell" id="project-detail">
+    <section className={`project-page section-shell ${slug === 'social-app' ? 'social-detail-page' : ''}`} id="project-detail">
       <div className="detail-rail">
         <DetailBackLink />
       </div>
@@ -1200,7 +1186,7 @@ function ProjectDetail({ t, lang, slug }) {
             </div>
           </aside>
 
-          <div className="project-content">
+          <div className={`project-content ${slug === 'social-app' ? 'social-project-content' : ''}`}>
             <header className="project-hero">
               <div className="project-copy">
                 <div className="project-title-row">
