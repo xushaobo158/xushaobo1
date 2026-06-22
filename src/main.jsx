@@ -55,7 +55,7 @@ const copy = {
     aboutEyebrow: 'ABOUT',
     aboutTitle: '关于我',
     aboutLead:
-      '我是徐少柏，一名关注产品体验、交互结构与界面表达的设计师。习惯把产品思维、vibe coding 工作流与高保真原型结合起来，把复杂需求梳理成可落地、可验证的设计方案。',
+      'Hi👋，我是徐少柏，一名 Product / UX Designer，目前为东北林业大学设计方向硕士研究生。\n\n我擅长将用户需求、产品逻辑与界面表达结合起来，完成信息架构梳理、交互流程设计和高保真原型搭建。也会将 ChatGPT、Codex等 AI 工具融入设计流程，通过 vibe coding 快速构建可交互原型，让设计方案不只停留在静态展示，而是能够被测试、被迭代、被真实体验。',
     aboutMeta: ['交互设计背景', 'B端与C端项目经验', '产品体验设计师'],
     cards: [
       {
@@ -213,7 +213,9 @@ const projectPageContent = {
         {
           title: '项目概览',
           text:
-            '不夜星球是一款面向年轻用户的兴趣社交产品，用户可通过兴趣标签、语音房、直播互动和消息聊天建立社交关系。随着功能模块增多，用户在进入产品后常出现找不到合适互动对象、进入房间前判断成本高、陌生人破冰沟通障碍等问题。',
+            '不夜星球是一款面向年轻用户的兴趣社交产品，用户可通过兴趣标签、语音房、直播互动和消息聊天建立社交关系。\n\n然而，随着功能模块增多，用户在进入产品后容易出现找不到合适互动对象、进入房间前判断成本高、陌生人破冰困难等问题，因此本项目围绕核心社交链路进行体验重构。',
+          roleText:
+            '用户访谈与需求整理；竞品机制分析；信息架构梳理；核心流程设计；首页、广场、消息、直播间关键页面设计；组件库搭建；设计交付与改版迭代。',
           noteLabel: '项目目标',
           noteText: '围绕“发现内容—判断对象—发起对话—消息承接”的核心链路，降低选择压力与破冰成本，让用户更容易完成首次有效互动。',
           bullets: ['兴趣社交产品体验重构', '首页、广场、消息、直播间关键路径优化', '从发现到互动的完整链路梳理'],
@@ -742,8 +744,6 @@ function Hero({ t }) {
 }
 
 function About({ t }) {
-  const photos = ['/assets/about-photo-1.png', '/assets/about-photo-2.png', '/assets/about-photo-3.png'];
-
   return (
     <section className="about section-shell" id="about">
       <div className="detail-rail">
@@ -760,11 +760,15 @@ function About({ t }) {
         </div>
       </div>
       <div className="about-gallery" aria-hidden="true">
-        {photos.map((src, index) => (
-          <figure key={src} className={`about-photo about-photo-${index + 1}`}>
-            <img src={src} alt="" />
-          </figure>
-        ))}
+        <figure className="about-photo about-photo-1">
+          <img src="/assets/about-photo-main.jpg" alt="" />
+        </figure>
+        <figure className="about-photo about-photo-2">
+          <img src="/assets/about-photo-2-newer.jpg" alt="" />
+        </figure>
+        <figure className="about-photo about-photo-3">
+          <img src="/assets/about-photo-3-new.jpg" alt="" />
+        </figure>
       </div>
     </section>
   );
@@ -950,6 +954,10 @@ function SocialProjectSection({ section, index }) {
       <section id={sectionId} className="project-section-block social-case-block">
         <h2>{section.title}</h2>
         <p>{section.text}</p>
+        <div className="social-role-note">
+          <strong>我的角色</strong>
+          <p>{section.roleText}</p>
+        </div>
         <div className="social-problem-layout">
           <div className="social-path-card">
             <SocialPhoneMock />
@@ -986,7 +994,7 @@ function SocialProjectSection({ section, index }) {
 
   if (index === 2) {
     return (
-      <section id={sectionId} className="project-section-block social-case-block">
+      <section id={sectionId} className="project-section-block social-case-block social-research-block">
         <h2>{section.title}</h2>
         <div className="social-research-top">
           <strong>200+问卷显示用户对同兴趣社交需求感兴趣，但当前社交软件聚焦性过于泛导致体验不佳</strong>
@@ -1110,18 +1118,36 @@ function SocialProjectSection({ section, index }) {
           ))}
         </div>
         <div className="social-before-after">
-          <div>
-            <p>首轮方案路径分散，用户在发现对象、判断是否合适、发起互动时仍存在理解成本。</p>
-            <span>路径分散</span>
-            <span>体验断点</span>
-            <span>破冰困难</span>
+          <div className="social-improvement-header">
+            <h3>方案改进</h3>
+            <strong>基于首轮用户测试反馈，二轮方案重点聚焦核心社交路径的清晰度</strong>
           </div>
-          <div className="social-before-after-visual" aria-hidden="true">
-            <strong>Before</strong>
-            <strong>After</strong>
-            <span />
-            <span />
-            <span />
+          <div className="social-before-after-stage">
+            <div className="social-before-copy">
+              <p>首轮方案已完成核心功能搭建，但用户在“发现对象-判断是否合适-发起互动”的过程中仍存在理解成本：首页入口较分散，卡片判断信息不足，打招呼缺少明确上下文。</p>
+              <div className="social-before-tags">
+                <span>路径分散</span>
+                <span>体验断点</span>
+                <span>破冰困难</span>
+              </div>
+            </div>
+            <div className="social-before-after-visual" aria-hidden="true">
+              <strong>Before</strong>
+              <strong>After</strong>
+              <i />
+              <span className="social-before-card social-before-card-a" />
+              <span className="social-before-card social-before-card-b" />
+              <span className="social-after-card social-after-card-a" />
+              <span className="social-after-card social-after-card-b" />
+            </div>
+          </div>
+          <div className="social-improvement-footer">
+            <div className="social-improvement-tags">
+              <span>路径收敛</span>
+              <span>推荐前置</span>
+              <span>关系承接</span>
+            </div>
+            <p>二轮方案围绕核心社交路径进行收敛优化，通过首页推荐前置、广场探索分工、卡片信息补充和破冰引导设计，让用户更清晰地完成从发现到互动的过程。</p>
           </div>
         </div>
       </section>
