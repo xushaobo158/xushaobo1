@@ -1,11 +1,11 @@
 import React, { useEffect, useId, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Globe, Lightbulb, Mail, MessageCircle, Moon, Phone, Sun } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Download, Globe, Lightbulb, Mail, MessageCircle, Moon, Phone, Sun } from 'lucide-react';
 import './styles.css';
 
 const copy = {
   zh: {
-    nav: ['作品', '简历', '联系'],
+    nav: ['首页', '简历', '作品', '联系'],
     heroName: '徐少柏 / Xushaobo',
     heroIntro:
       'Hi，我是徐少柏，一名拥有交互设计背景的产品体验设计师，擅长结合产品思维、vibe coding工作流与高保真原型，将复杂需求快速转化为清晰、可落地的交互体验。',
@@ -20,6 +20,35 @@ const copy = {
     resumeTag: 'PRODUCT / UX DESIGNER',
     resumeSummary:
       '我是一名关注产品体验、交互结构与界面表达的设计师，擅长将产品思维、vibe coding 工作流与高保真原型结合起来，把复杂需求转化为清晰、可落地的设计方案。',
+    homeResumeEyebrow: 'RESUME SNAPSHOT',
+    homeResumeTitle: '简历速览',
+    homeResumeLead: '把和岗位最相关的信息先放在这里，方便在浏览项目之前快速了解我的方向、背景与经验。',
+    homeResumeSideNote: '适合用于产品体验设计 / UIUX 相关岗位投递，也可以通过右侧入口直接下载完整 PDF 简历。',
+    homeResumeSections: [
+      {
+        title: '教育背景',
+        items: [
+          '东北林业大学设计方向硕士研究生。',
+          '持续围绕数字产品体验、交互逻辑与界面设计展开学习与实践。',
+        ],
+      },
+      {
+        title: '项目经历',
+        items: [
+          '不夜星球社交 APP 产品体验设计优化：围绕用户核心路径，优化产品结构与社交互动细节。',
+          '文件生成后台工具系统设计：从业务流程出发，重构信息架构、操作流程与关键页面体验。',
+          '网站视觉优化改版设计：强化信息层级与视觉一致性，提升品牌展示与用户感知。',
+        ],
+      },
+      {
+        title: '实习经历',
+        items: [
+          '具备互联网产品团队协作意识，能够在需求梳理、交互设计、界面交付与迭代推进中保持稳定配合。',
+          '关注设计在真实业务场景中的使用价值和落地效果。',
+        ],
+      },
+    ],
+    homeResumeDownload: '下载 PDF 简历',
     resumeProfile: [
       { label: '姓名', value: '徐少柏 / Xushaobo' },
       { label: '方向', value: '用户体验设计 / UIUX 设计' },
@@ -99,7 +128,7 @@ const copy = {
     marquee: 'LET US BUILD SOMETHING GREAT TOGETHER',
   },
   en: {
-    nav: ['Work', 'Resume', 'Contact'],
+    nav: ['Home', 'Resume', 'Work', 'Contact'],
     heroName: 'Xu Shaobo / Xushaobo',
     heroIntro:
       'Designing user experiences and interfaces for internet products, with attention to user needs, product structure, and every interaction detail.',
@@ -114,6 +143,35 @@ const copy = {
     resumeTag: 'PRODUCT / UX DESIGNER',
     resumeSummary:
       'I am a product experience designer focused on interaction structure, interface craft, and clear product thinking. I like combining vibe coding workflows with high-fidelity prototyping to turn complex requirements into concrete, testable solutions.',
+    homeResumeEyebrow: 'RESUME SNAPSHOT',
+    homeResumeTitle: 'Resume Snapshot',
+    homeResumeLead: 'A quick overview before the case studies, so the core direction, background, and experience are clear at a glance.',
+    homeResumeSideNote: 'Useful as a quick hiring snapshot for Product Experience / UIUX roles, with the full PDF resume available on the right.',
+    homeResumeSections: [
+      {
+        title: 'Education',
+        items: [
+          'Master’s student in design at Northeast Forestry University.',
+          'Continuing study and practice around digital product experience, interaction logic, and interface design.',
+        ],
+      },
+      {
+        title: 'Projects',
+        items: [
+          'Sleepless Planet social app optimization: refined core user journeys, product structure, and social interaction details.',
+          'File generation back-office tool system: rebuilt information architecture, workflows, and key operational pages.',
+          'Website visual redesign: improved hierarchy, consistency, and brand perception.',
+        ],
+      },
+      {
+        title: 'Internship',
+        items: [
+          'Comfortable collaborating in internet product teams across requirement framing, interaction design, UI delivery, and iteration.',
+          'Strong interest in design decisions that can be used, tested, and shipped in real product contexts.',
+        ],
+      },
+    ],
+    homeResumeDownload: 'Download PDF Resume',
     resumeProfile: [
       { label: 'Name', value: 'Xu Shaobo / Xushaobo' },
       { label: 'Focus', value: 'Product Experience Design / UIUX Design' },
@@ -508,9 +566,9 @@ const projectPageContent = {
 
 function Header({ lang, setLang, t, theme, setTheme }) {
   const rawPathname = window.location.pathname;
-  const pathname = rawPathname.startsWith('/about') ? '/' : rawPathname;
-  const onDetailPage = pathname.startsWith('/resume') || pathname.startsWith('/projects/');
-  const navTargets = onDetailPage ? ['/#work', '/resume', '/#contact'] : ['#work', '/resume', '#contact'];
+  const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
+  const onDetailPage = pathname.startsWith('/projects/');
+  const navTargets = onDetailPage ? ['/', '/#resume-preview', '/#work', '/#contact'] : ['#top', '#resume-preview', '#work', '#contact'];
   const homeTarget = onDetailPage ? '/' : '#top';
 
   return (
@@ -750,6 +808,50 @@ function Resume() {
           ))}
         </div>
       </article>
+    </section>
+  );
+}
+
+function HomeResumeModule({ t }) {
+  return (
+    <section className="home-resume section-shell" id="resume-preview">
+      <div className="home-resume-sheet">
+        <div className="home-resume-copy">
+          <p className="home-resume-eyebrow">{t.homeResumeEyebrow}</p>
+          <div className="home-resume-heading">
+            <h2>{t.homeResumeTitle}</h2>
+            <p>{t.homeResumeLead}</p>
+          </div>
+          <div className="home-resume-sections">
+            {t.homeResumeSections.map((section) => (
+              <section key={section.title} className="home-resume-section">
+                <h3>{section.title}</h3>
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
+        <aside className="home-resume-side">
+          <p className="home-resume-side-kicker">{t.homeResumeEyebrow}</p>
+          <a className="resume-download home-resume-download" href="/assets/xushaobo-resume.pdf" download>
+            <Download size={16} strokeWidth={1.9} />
+            {t.homeResumeDownload}
+          </a>
+          <p className="home-resume-side-note">{t.homeResumeSideNote}</p>
+          <div className="home-resume-facts">
+            {t.resumeProfile.map((item) => (
+              <div key={item.label} className="home-resume-fact">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
     </section>
   );
 }
@@ -1356,7 +1458,7 @@ function App() {
   });
   const t = copy[lang];
   const rawPathname = window.location.pathname;
-  const pathname = rawPathname.startsWith('/about') ? '/' : rawPathname;
+  const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
   const isResumePage = pathname.startsWith('/resume');
   const projectSlug = pathname.startsWith('/projects/') ? pathname.replace('/projects/', '').split('/')[0] : '';
   const isProjectPage = Boolean(projectSlug);
@@ -1369,6 +1471,9 @@ function App() {
   useEffect(() => {
     if (rawPathname.startsWith('/about')) {
       window.history.replaceState({}, '', '/');
+    }
+    if (rawPathname.startsWith('/resume')) {
+      window.history.replaceState({}, '', '/#resume-preview');
     }
   }, [rawPathname]);
 
@@ -1386,6 +1491,7 @@ function App() {
         ) : (
           <>
             <Hero t={t} />
+            <HomeResumeModule t={t} />
             <WorkGrid t={t} />
             <Contact t={t} />
           </>

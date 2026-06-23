@@ -453,6 +453,160 @@ img {
   flex: 0 0 auto;
 }
 
+.home-resume {
+  position: relative;
+  margin-top: 16px;
+  padding: 30px 28px 26px;
+  overflow: hidden;
+}
+
+.home-resume::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, var(--line-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
+  background-size: 220px 220px;
+  content: '';
+}
+
+.home-resume-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1.36fr) minmax(280px, 0.64fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.home-resume-copy {
+  display: grid;
+  gap: 22px;
+}
+
+.home-resume-eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.home-resume-heading {
+  display: grid;
+  gap: 12px;
+}
+
+.home-resume-heading h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 900;
+  line-height: 0.96;
+}
+
+.home-resume-heading p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.home-resume-sections {
+  display: grid;
+  gap: 0;
+}
+
+.home-resume-section {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.home-resume-section:first-child {
+  padding-top: 4px;
+  border-top: 0;
+}
+
+.home-resume-section:last-child {
+  padding-bottom: 0;
+}
+
+.home-resume-section h3 {
+  margin: 0 0 16px;
+  font-size: 1.36rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.home-resume-section ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--muted);
+}
+
+.home-resume-section li {
+  margin-bottom: 18px;
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.home-resume-section li:last-child {
+  margin-bottom: 0;
+}
+
+.home-resume-side {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 8px 0 0 24px;
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.42), rgba(255, 253, 248, 0.12));
+}
+
+.home-resume-download {
+  width: 100%;
+  min-height: 52px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.home-resume-side-kicker,
+.home-resume-fact span {
+  display: block;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.home-resume-side-kicker {
+  margin: 0;
+}
+
+.home-resume-side-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.home-resume-facts {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.home-resume-fact {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.home-resume-fact strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
 .hero-visual {
   position: relative;
   justify-self: end;
@@ -2787,6 +2941,17 @@ img {
     padding-top: 38px;
   }
 
+  .home-resume-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .home-resume-side {
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    background: none;
+  }
+
   .hero h1 {
     font-size: 4.4rem;
   }
@@ -3068,6 +3233,32 @@ img {
 
   .hero-text {
     padding-top: 0;
+  }
+
+  .home-resume {
+    padding: 28px 18px 22px;
+  }
+
+  .home-resume-heading h2 {
+    font-size: 2.4rem;
+  }
+
+  .home-resume-heading p,
+  .home-resume-section li,
+  .home-resume-side-note {
+    font-size: 0.94rem;
+  }
+
+  .home-resume-side {
+    padding-top: 18px;
+  }
+
+  .home-resume-section {
+    padding: 22px 0;
+  }
+
+  .home-resume-section h3 {
+    font-size: 1.18rem;
   }
 
   .hero h1 {
