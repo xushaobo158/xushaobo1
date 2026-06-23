@@ -8,7 +8,7 @@ const copy = {
     nav: ['作品', '关于', '简历', '联系'],
     heroName: '徐少柏 / Xushaobo',
     heroIntro:
-      'Hi，我是徐少柏，一名拥有交互设计背景的产品体验设计师，擅长结合产品思维、vibe coding工作流与高保真原型，将复杂需求快速转化为清晰、可落地的交互体验。',
+      'Hi👋，我是徐少柏，一名 Product / UX Designer，目前为东北林业大学设计方向硕士研究生。\n\n我擅长将用户需求、产品逻辑与界面表达结合起来，完成信息架构梳理、交互流程设计和高保真原型搭建。也会将 ChatGPT、Codex等 AI 工具融入设计流程，通过 vibe coding 快速构建可交互原型，让设计方案不只停留在静态展示，而是能够被测试、被迭代、被真实体验。',
     heroCta: '查看我的作品',
     scroll: 'SCROLL',
     selected: 'Selected',
