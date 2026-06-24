@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo, useState } from 'react';
+﻿import React, { useEffect, useId, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Download, Globe, Lightbulb, Mail, MessageCircle, Moon, Phone, Sun } from 'lucide-react';
 import './styles.css';
@@ -15,11 +15,6 @@ const copy = {
     workTitle: 'PROJECTS',
     workHint: '点击卡片查看项目',
     role: 'PRODUCT / UX DESIGNER',
-    resumeBack: '返回首页',
-    resumeTitle: '简历',
-    resumeTag: 'PRODUCT / UX DESIGNER',
-    resumeSummary:
-      '我是一名关注产品体验、交互结构与界面表达的设计师，擅长将产品思维、vibe coding 工作流与高保真原型结合起来，把复杂需求转化为清晰、可落地的设计方案。',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: '简历速览',
     homeResumeLead: '把和岗位最相关的信息先放在这里，方便在浏览项目之前快速了解我的方向、背景与经验。',
@@ -55,37 +50,6 @@ const copy = {
       { label: '目标', value: '互联网产品公司' },
       { label: '联系方式', value: '3121353738@qq.com / 15930186021' },
     ],
-    resumeSections: [
-      {
-        title: '核心能力',
-        items: [
-          '从产品目标与用户路径出发，梳理复杂需求并完成信息结构与交互方案设计。',
-          '能结合高保真原型与 vibe coding 工作流，快速验证概念、推进协作与设计落地。',
-          '关注 C 端体验感知与 B 端效率场景，在视觉表达与可用性之间找到平衡。',
-        ],
-      },
-      {
-        title: '项目经历',
-        items: [
-          '不夜星球社交 APP 产品体验设计优化：围绕用户核心路径，优化产品结构与社交互动细节。',
-          '文件生成后台工具系统设计：从业务流程出发，重构信息架构、操作流程与关键页面体验。',
-          '网站视觉优化改版设计：强化信息层级与视觉一致性，提升品牌展示与用户感知。',
-        ],
-      },
-      {
-        title: '技能与工具',
-        items: [
-          '产品思维、用户体验设计、界面设计、信息架构、交互原型。',
-          'Figma、原型演示、设计系统梳理、视觉规范整理。',
-          'ChatGPT、Claude、vibe coding、快速前端验证与体验演示。',
-        ],
-      },
-    ],
-    aboutEyebrow: 'ABOUT',
-    aboutTitle: '关于我',
-    aboutLead:
-      'Hi👋，我是徐少柏，一名 Product / UX Designer，目前为东北林业大学设计方向硕士研究生。\n\n我擅长将用户需求、产品逻辑与界面表达结合起来，完成信息架构梳理、交互流程设计和高保真原型搭建。也会将 ChatGPT、Codex等 AI 工具融入设计流程，通过 vibe coding 快速构建可交互原型，让设计方案不只停留在静态展示，而是能够被测试、被迭代、被真实体验。',
-    aboutMeta: ['交互设计背景', 'B端与C端项目经验', '产品体验设计师'],
     cards: [
       {
         title: '不夜星球社交APP产品体验设计优化',
@@ -138,11 +102,6 @@ const copy = {
     workTitle: 'PROJECTS',
     workHint: 'Click cards to view case studies',
     role: 'PRODUCT / UX DESIGNER',
-    resumeBack: 'Back to home',
-    resumeTitle: 'Resume',
-    resumeTag: 'PRODUCT / UX DESIGNER',
-    resumeSummary:
-      'I am a product experience designer focused on interaction structure, interface craft, and clear product thinking. I like combining vibe coding workflows with high-fidelity prototyping to turn complex requirements into concrete, testable solutions.',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: 'Resume Snapshot',
     homeResumeLead: 'A quick overview before the case studies, so the core direction, background, and experience are clear at a glance.',
@@ -178,37 +137,6 @@ const copy = {
       { label: 'Target', value: 'Internet product companies' },
       { label: 'Contact', value: '3121353738@qq.com / 15930186021' },
     ],
-    resumeSections: [
-      {
-        title: 'Core Strengths',
-        items: [
-          'Translate complex product goals and user paths into clear structures, flows, and interface solutions.',
-          'Use high-fidelity prototyping and vibe coding workflows to validate ideas quickly and support collaboration.',
-          'Balance emotional clarity for consumer products with efficiency and structure for B2B tools.',
-        ],
-      },
-      {
-        title: 'Project Highlights',
-        items: [
-          'Sleepless Planet social app optimization: refined core user journeys, product structure, and social interaction details.',
-          'File generation back-office tool system: rebuilt information architecture, workflows, and operational efficiency.',
-          'Website visual redesign: improved hierarchy, consistency, and brand perception across key pages.',
-        ],
-      },
-      {
-        title: 'Skills & Tools',
-        items: [
-          'Product thinking, UX design, UI design, information architecture, and interaction prototyping.',
-          'Figma, high-fidelity prototyping, design-system organization, and visual guideline building.',
-          'ChatGPT, Claude, vibe coding, rapid front-end validation, and interactive concept testing.',
-        ],
-      },
-    ],
-    aboutEyebrow: 'ABOUT',
-    aboutTitle: 'About Me',
-    aboutLead:
-      'I am Xu Shaobo, a product experience designer focused on product thinking, interaction structure, and interface craft. I like combining vibe coding workflows with high-fidelity prototyping to turn complex requirements into clear, testable design solutions.',
-    aboutMeta: ['Interaction design background', 'B2B and consumer product experience', 'Product UX designer'],
     cards: [
       {
         title: 'Sleepless Planet Social App Experience Optimization',
@@ -764,50 +692,6 @@ function Hero({ t }) {
         <ArrowDown size={15} strokeWidth={1.5} />
         <span>{t.scroll}</span>
       </a>
-    </section>
-  );
-}
-
-function Resume() {
-  const resume = copy.zh;
-
-  return (
-    <section className="resume-page section-shell" id="resume">
-      <div className="resume-rail">
-        <DetailBackLink className="resume-back" label={resume.resumeBack} />
-      </div>
-      <article className="resume-sheet">
-        <div className="resume-hero">
-          <div>
-            <p className="resume-eyebrow">{resume.resumeTag}</p>
-            <h1>{resume.resumeTitle}</h1>
-            <p className="resume-summary">{resume.resumeSummary}</p>
-          </div>
-          <div className="resume-profile">
-            <a className="resume-download" href="/assets/xushaobo-resume.pdf" download>
-              下载 PDF
-            </a>
-            {resume.resumeProfile.map((item) => (
-              <div key={item.label} className="resume-profile-item">
-                <span>{item.label}</span>
-                <strong>{item.value}</strong>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="resume-sections">
-          {resume.resumeSections.map((section) => (
-            <section key={section.title} className="resume-section-block">
-              <h2>{section.title}</h2>
-              <ul>
-                {section.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-      </article>
     </section>
   );
 }
@@ -1458,8 +1342,7 @@ function App() {
   });
   const t = copy[lang];
   const rawPathname = window.location.pathname;
-  const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
-  const isResumePage = pathname.startsWith('/resume');
+  const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
   const projectSlug = pathname.startsWith('/projects/') ? pathname.replace('/projects/', '').split('/')[0] : '';
   const isProjectPage = Boolean(projectSlug);
 
@@ -1481,10 +1364,8 @@ function App() {
     <>
       <div className="grid-background" aria-hidden="true" />
       <Header lang={lang} setLang={setLang} t={t} theme={theme} setTheme={setTheme} />
-      <main className={isResumePage || isProjectPage ? 'page-main' : ''}>
-        {isResumePage ? (
-          <Resume />
-        ) : projectSlug === 'in-progress' ? (
+      <main className={isProjectPage ? 'page-main' : ''}>
+        {projectSlug === 'in-progress' ? (
           <InProgressPage />
         ) : isProjectPage ? (
           <ProjectDetail t={t} lang={lang} slug={projectSlug} />
