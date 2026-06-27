@@ -640,6 +640,18 @@ function CircularBadge({ label, onMouseEnter, onMouseMove, onMouseLeave, onClick
 function PhotoWall({ className = '', eager = false, single = false }) {
   return (
     <div className={className} aria-hidden="true">
+      {single ? (
+        <figure className="about-photo about-photo-3 about-photo-placeholder">
+          <div className="about-photo-placeholder-frame">
+            <span className="about-photo-placeholder-line line-1" />
+            <span className="about-photo-placeholder-line line-2" />
+            <span className="about-photo-placeholder-line line-3" />
+            <span className="about-photo-placeholder-card card-1" />
+            <span className="about-photo-placeholder-card card-2" />
+            <span className="about-photo-placeholder-card card-3" />
+          </div>
+        </figure>
+      ) : null}
       {!single ? (
         <figure className="about-photo about-photo-1">
           <img
@@ -661,14 +673,16 @@ function PhotoWall({ className = '', eager = false, single = false }) {
           />
         </figure>
       ) : null}
-      <figure className="about-photo about-photo-3">
-        <img
-          src="/assets/about-photo-3-new.webp"
-          alt=""
-          loading={eager ? 'eager' : 'lazy'}
-          decoding="async"
-        />
-      </figure>
+      {!single ? (
+        <figure className="about-photo about-photo-3">
+          <img
+            src="/assets/about-photo-3-new.webp"
+            alt=""
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </figure>
+      ) : null}
     </div>
   );
 }
