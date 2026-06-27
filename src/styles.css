@@ -502,6 +502,95 @@ img {
   gap: 0;
 }
 
+.home-resume-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.home-resume-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 18px;
+  border: 1px solid rgba(30, 28, 25, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.home-resume-section-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.home-resume-section-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.92;
+}
+
+.home-resume-section-copy strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.home-resume-entry-list {
+  display: grid;
+  gap: 18px;
+}
+
+.home-resume-entry {
+  display: grid;
+  gap: 12px;
+}
+
+.home-resume-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.home-resume-entry-head > div {
+  display: grid;
+  gap: 4px;
+}
+
+.home-resume-entry-org {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.home-resume-entry-role,
+.home-resume-entry-date {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.home-resume-entry-date {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.home-resume-entry-details {
+  display: grid;
+  gap: 10px;
+}
+
+.home-resume-entry-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.88;
+}
+
 .home-resume-section {
   padding: 28px 0;
   border-top: 1px solid var(--line);
@@ -521,22 +610,6 @@ img {
   font-size: 1.36rem;
   font-weight: 900;
   line-height: 1.2;
-}
-
-.home-resume-section ul {
-  margin: 0;
-  padding-left: 1.5rem;
-  color: var(--muted);
-}
-
-.home-resume-section li {
-  margin-bottom: 18px;
-  font-size: 0.98rem;
-  line-height: 1.9;
-}
-
-.home-resume-section li:last-child {
-  margin-bottom: 0;
 }
 
 .home-resume-side {
@@ -3223,7 +3296,8 @@ img {
   }
 
   .home-resume-heading p,
-  .home-resume-section li,
+  .home-resume-section-copy p,
+  .home-resume-entry-details p,
   .home-resume-side-note {
     font-size: 0.94rem;
   }
@@ -3238,6 +3312,15 @@ img {
 
   .home-resume-section h3 {
     font-size: 1.18rem;
+  }
+
+  .home-resume-entry-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .home-resume-entry-date {
+    white-space: normal;
   }
 
   .hero h1 {

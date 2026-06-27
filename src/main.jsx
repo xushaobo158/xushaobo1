@@ -17,38 +17,101 @@ const copy = {
     role: 'PRODUCT / UX DESIGNER',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: '简历速览',
-    homeResumeLead: '把和岗位最相关的信息先放在这里，方便在浏览项目之前快速了解我的方向、背景与经验。',
+    homeResumeLead: '把正式简历里的关键信息按模块拆开放在这里，方便在浏览项目之前快速了解我的背景、经历与能力。',
     homeResumeSideNote: '适合用于产品体验设计 / UIUX 相关岗位投递，也可以通过右侧入口直接下载完整 PDF 简历。',
+    homeResumeTags: ['产品思维', 'Vibe coding', '体验设计', 'AI工具'],
     homeResumeSections: [
       {
-        title: '教育背景',
-        items: [
-          '东北林业大学设计方向硕士研究生。',
-          '持续围绕数字产品体验、交互逻辑与界面设计展开学习与实践。',
+        title: '关于我',
+        paragraphs: [
+          { label: '设计能力与思维', text: '熟练使用 figma 与 Adobe 软件工具，具备从用户研究、需求梳理、交互架构到高保真输出、组件库搭建的完整项目经验，覆盖工业软件、APP、网页设计等。' },
+          { label: 'AI 工具应用能力', text: '具备熟练使用 Lovable、ChatGPT、Figma Make 及 Vibe coding 提升效率的能力，结合 Codex 等工具实现设计、开发、测试闭环，提升方案落地能力。' },
+          { label: '个人成就', text: '未来设计师艺术设计大赛国赛三等奖、中国好创意暨全国艺术设计大赛省赛一等奖、校级一等奖学金、大学生创新创业实践项目负责人（获一万元项目资助经费）、杰出学生干部。' },
         ],
       },
       {
-        title: '项目经历',
-        items: [
-          '不夜星球社交 APP 产品体验设计优化：围绕用户核心路径，优化产品结构与社交互动细节。',
-          '文件生成后台工具系统设计：从业务流程出发，重构信息架构、操作流程与关键页面体验。',
-          '网站视觉优化改版设计：强化信息层级与视觉一致性，提升品牌展示与用户感知。',
+        title: '教育经历',
+        entries: [
+          {
+            org: '东北林业大学（211）',
+            role: '设计学（前15%） / 硕士',
+            date: '2024.09-2027.06',
+            details: [
+              '主修课程：用户体验设计、交互设计、用户研究与统计分析、人工工程学、产品与服务系统、生态与可持续设计、设计管理与战略。',
+              '获奖经历：校级一等奖学金两次；设计类比赛国家级三等奖两项，省级一等奖两项，省级三等奖一项；优秀学生干部。',
+            ],
+          },
+          {
+            org: '绥化学院',
+            role: '环境设计（前10%） / 学士',
+            date: '2019.09-2023.06',
+            details: [
+              '主修课程：手绘效果图表现技法、CAD 建筑制图、3DMAX 室内外场景制作、人工工程学、装饰材料与构造、建筑工程制图与识图。',
+              '获奖经历：校级三等奖学金一次；设计类比赛国家级三等奖两项；优秀学生干部。',
+            ],
+          },
         ],
       },
       {
         title: '实习经历',
-        items: [
-          '具备互联网产品团队协作意识，能够在需求梳理、交互设计、界面交付与迭代推进中保持稳定配合。',
-          '关注设计在真实业务场景中的使用价值和落地效果。',
+        entries: [
+          {
+            org: '北京经纬恒润科技股份有限公司',
+            role: '交互设计实习生',
+            date: '2025.12-2026.05',
+            details: [
+              '组件库搭建：协助完成汽车架构研发内部 B 端系统设计，负责产品组件库搭建与维护，沉淀 20+ 个基础组件，支撑多模块界面复用与视觉一致性管理。',
+              'B端模块设计：与设计师协同完成 2 个内部工具模块交互设计，梳理核心任务流程与页面跳转关系，输出 3 份业务流程图及 20 余页高保真界面，支撑工具完整链路落地。',
+              '车展筹备：参与 2026 年 4 月北京国际车展筹备，负责展会大屏界面、产品展示视频及相关视觉物料设计，配合市场、运营、研发团队完成多轮方案调整与落地；同步输出 4 套内部产品家族 Logo 并完成稿交付。',
+            ],
+          },
+          {
+            org: '北京妙动时光文化传媒有限公司',
+            role: '产品设计实习生',
+            date: '2024.03-2024.08',
+            details: [
+              '用户研究：协同产品经理完成 4 款同类产品竞品分析，访谈 12 名目标用户，提炼 24 个有效痛点，输出 2 组核心用户画像与体验分析报告，为交互架构设计提供依据。',
+              '体验优化：参与 iOS / Android 双端设计规范与组件库搭建，跟进 8 轮版本迭代，围绕直播间互动入口、消息提醒层级和用户回流路径进行体验优化，输出 20 余页高保真原型，完成 4 项核心体验迭代，将核心操作步骤由 8-9 步缩短至 5-6 步。',
+            ],
+          },
+        ],
+      },
+      {
+        title: '项目经历',
+        entries: [
+          {
+            org: '经纬恒润官网视觉迭代设计',
+            role: '视觉体验 / 用户体验',
+            date: '2026.03-2026.05',
+            details: ['参与经纬恒润官网视觉迭代，完成首页及 6 个业务页面视觉优化，输出 20 余张高保真设计稿及 PC / 移动端适配方案，提升页面展示效果与视觉一致性。'],
+          },
+          {
+            org: '文件配置自动化管理平台改版设计',
+            role: '交互设计 / 原型开发',
+            date: '2025.11-2026.05',
+            details: ['参与文件配置自动化管理平台改版，针对工具入口分散、流程跳转多的问题，梳理文件生成全流程，整合 3 类高频功能入口，优化 4 个核心页面的信息结构与操作路径，输出 15 余张高保真页面。'],
+          },
+          {
+            org: '“冰川智界”车载 HMI 视觉优化设计',
+            role: '用户体验 / 视觉优化',
+            date: '2024.11-2025.05',
+            details: ['参与东北林业大学创新创业实践项目，针对问界 M7 车机体验进行优化设计，完成用户研究、驾驶场景分析与信息架构梳理，输出 30 余张车机核心界面，搭建基础视觉规范与组件库，形成完整车载交互设计方案。'],
+          },
+          {
+            org: '不夜星球社交 APP 产品体验优化',
+            role: '用户体验 / 产品设计',
+            date: '2024.03-2024.08',
+            details: ['围绕兴趣社交产品核心链路进行体验重构，梳理首页浏览、房间筛选、用户匹配与破冰互动流程，优化房间卡片、用户标签、兴趣推荐和互动引导等 4 类核心模块，降低用户进入房间前的判断成本，点击判断效率提升约 20%。'],
+          },
         ],
       },
     ],
     homeResumeDownload: '下载 PDF 简历',
     resumeProfile: [
       { label: '姓名', value: '徐少柏 / Xushaobo' },
-      { label: '方向', value: '用户体验设计 / UIUX 设计' },
-      { label: '邮箱', value: '3121353738@qq.com' },
-      { label: '电话', value: '15930186021' },
+      { label: '电话 / 微信', value: '15930186021' },
+      { label: '个人邮箱', value: '3121353738@qq.com' },
+      { label: '求职方向', value: '交互设计师 / 用户体验设计师' },
     ],
     cards: [
       {
@@ -104,38 +167,101 @@ const copy = {
     role: 'PRODUCT / UX DESIGNER',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: 'Resume Snapshot',
-    homeResumeLead: 'A quick overview before the case studies, so the core direction, background, and experience are clear at a glance.',
+    homeResumeLead: 'A structured text version of the resume, translated into quick modules so the core background, experience, and capabilities are easy to scan before the case studies.',
     homeResumeSideNote: 'Useful as a quick hiring snapshot for Product Experience / UIUX roles, with the full PDF resume available on the right.',
+    homeResumeTags: ['Product Thinking', 'Vibe Coding', 'Experience Design', 'AI Tools'],
     homeResumeSections: [
       {
+        title: 'About Me',
+        paragraphs: [
+          { label: 'Design capabilities & thinking', text: 'Experienced with Figma and Adobe tools, covering user research, requirement framing, interaction architecture, high-fidelity output, and component library building across industrial software, apps, and web design.' },
+          { label: 'AI-enhanced workflow', text: 'Comfortable using Lovable, ChatGPT, Figma Make, Vibe Coding, and Codex to build a faster loop between design, development, and validation, helping ideas land more effectively.' },
+          { label: 'Selected achievements', text: 'National and provincial design competition awards, top university scholarship recognition, entrepreneurship project leadership with funded support, and outstanding student leader recognition.' },
+        ],
+      },
+      {
         title: 'Education',
-        items: [
-          'Master’s student in design at Northeast Forestry University.',
-          'Continuing study and practice around digital product experience, interaction logic, and interface design.',
+        entries: [
+          {
+            org: 'Northeast Forestry University (211)',
+            role: 'M.Des. in Design (Top 15%)',
+            date: '2024.09-2027.06',
+            details: [
+              'Coursework includes UX design, interaction design, user research and statistics, ergonomics, product and service systems, ecological and sustainable design, and design management.',
+              'Awards include university first-class scholarships, national and provincial design competition prizes, and student leadership recognition.',
+            ],
+          },
+          {
+            org: 'Suihua University',
+            role: 'B.A. in Environmental Design (Top 10%)',
+            date: '2019.09-2023.06',
+            details: [
+              'Coursework includes visual rendering, CAD drawing, 3DMAX interior/exterior production, ergonomics, materials and construction, and architectural drafting.',
+              'Awards include scholarship recognition, national design competition prizes, and student leadership recognition.',
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Internships',
+        entries: [
+          {
+            org: 'HI Raintech',
+            role: 'Interaction Design Intern',
+            date: '2025.12-2026.05',
+            details: [
+              'Built and maintained a B-side component library with 20+ foundational components for internal vehicle-platform systems.',
+              'Collaborated on two internal tool modules, producing process maps and 20+ high-fidelity screens.',
+              'Supported Beijing Auto Show preparation with large-screen interfaces, showcase visuals, and internal brand logo output.',
+            ],
+          },
+          {
+            org: 'Beijing Miaodong Time Media',
+            role: 'Product Design Intern',
+            date: '2024.03-2024.08',
+            details: [
+              'Ran competitive research and user interviews to extract pain points, personas, and experience findings.',
+              'Participated in iOS/Android design system work and iterative UX optimization around livestreaming and messaging flows.',
+            ],
+          },
         ],
       },
       {
         title: 'Projects',
-        items: [
-          'Sleepless Planet social app optimization: refined core user journeys, product structure, and social interaction details.',
-          'File generation back-office tool system: rebuilt information architecture, workflows, and key operational pages.',
-          'Website visual redesign: improved hierarchy, consistency, and brand perception.',
-        ],
-      },
-      {
-        title: 'Internship',
-        items: [
-          'Comfortable collaborating in internet product teams across requirement framing, interaction design, UI delivery, and iteration.',
-          'Strong interest in design decisions that can be used, tested, and shipped in real product contexts.',
+        entries: [
+          {
+            org: 'HI Raintech Official Website Visual Refresh',
+            role: 'Visual Experience / UX',
+            date: '2026.03-2026.05',
+            details: ['Refined the homepage and six business pages with high-fidelity visual updates and responsive delivery.'],
+          },
+          {
+            org: 'File Configuration Automation Platform Redesign',
+            role: 'Interaction Design / Prototype Development',
+            date: '2025.11-2026.05',
+            details: ['Reworked the full file-generation workflow, consolidated high-frequency entry points, and optimized four core pages.'],
+          },
+          {
+            org: '"Glacier Intelligence" In-car HMI Optimization',
+            role: 'UX / Visual Optimization',
+            date: '2024.11-2025.05',
+            details: ['Completed user research, driving-scenario analysis, and 30+ in-car interface screens for a full interaction proposal.'],
+          },
+          {
+            org: 'Sleepless Planet Social App Optimization',
+            role: 'UX / Product Design',
+            date: '2024.03-2024.08',
+            details: ['Restructured the core social journey and improved room-card, user-tag, recommendation, and ice-breaking modules, improving decision efficiency by around 20%.'],
+          },
         ],
       },
     ],
     homeResumeDownload: 'Download PDF Resume',
     resumeProfile: [
       { label: 'Name', value: 'Xu Shaobo / Xushaobo' },
-      { label: 'Focus', value: 'Product Experience Design / UIUX Design' },
+      { label: 'Phone / WeChat', value: '15930186021' },
       { label: 'Email', value: '3121353738@qq.com' },
-      { label: 'Phone', value: '15930186021' },
+      { label: 'Target Role', value: 'Interaction Designer / UX Designer' },
     ],
     cards: [
       {
@@ -698,15 +824,47 @@ function HomeResumeModule({ t }) {
             <h2>{t.homeResumeTitle}</h2>
             <p>{t.homeResumeLead}</p>
           </div>
+          <div className="home-resume-tag-list" aria-label="Resume tags">
+            {t.homeResumeTags.map((tag) => (
+              <span key={tag} className="home-resume-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
           <div className="home-resume-sections">
             {t.homeResumeSections.map((section) => (
               <section key={section.title} className="home-resume-section">
                 <h3>{section.title}</h3>
-                <ul>
-                  {section.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                {section.paragraphs ? (
+                  <div className="home-resume-section-copy">
+                    {section.paragraphs.map((item) => (
+                      <p key={item.label}>
+                        <strong>{item.label}：</strong>
+                        <span>{item.text}</span>
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+                {section.entries ? (
+                  <div className="home-resume-entry-list">
+                    {section.entries.map((entry) => (
+                      <article key={`${entry.org}-${entry.role}`} className="home-resume-entry">
+                        <div className="home-resume-entry-head">
+                          <div>
+                            <strong className="home-resume-entry-org">{entry.org}</strong>
+                            <span className="home-resume-entry-role">{entry.role}</span>
+                          </div>
+                          <span className="home-resume-entry-date">{entry.date}</span>
+                        </div>
+                        <div className="home-resume-entry-details">
+                          {entry.details.map((detail) => (
+                            <p key={detail}>{detail}</p>
+                          ))}
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                ) : null}
               </section>
             ))}
           </div>
