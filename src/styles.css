@@ -829,14 +829,14 @@ img {
 
 .hero-photo-wall.is-single {
   width: min(100%, 640px);
-  min-height: 560px;
+  aspect-ratio: 4 / 3;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   justify-self: center;
 }
 
 .hero-photo-wall.is-single .about-photo-3 {
-  min-height: 560px;
+  min-height: 100%;
   transform: rotate(-1deg);
 }
 
