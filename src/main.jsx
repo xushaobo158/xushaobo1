@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useId, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Download, Globe, Lightbulb, Mail, MessageCircle, Moon, Phone, Sun } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Download, Globe, Lightbulb, Mail, MessageCircle, Phone } from 'lucide-react';
 import './styles.css';
 
 const copy = {
@@ -492,7 +492,7 @@ const projectPageContent = {
   },
 };
 
-function Header({ lang, setLang, t, theme, setTheme }) {
+function Header({ lang, setLang, t }) {
   const rawPathname = window.location.pathname;
   const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
   const onDetailPage = pathname.startsWith('/projects/');
@@ -511,14 +511,6 @@ function Header({ lang, setLang, t, theme, setTheme }) {
           </a>
         ))}
       </nav>
-      <button
-        className="theme-toggle"
-        type="button"
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-        aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-      >
-        {theme === 'light' ? <Moon size={15} strokeWidth={1.9} /> : <Sun size={15} strokeWidth={1.9} />}
-      </button>
       <button
         className="language-toggle"
         type="button"
@@ -594,7 +586,7 @@ function PhotoWall({ className = '', eager = false }) {
     <div className={className} aria-hidden="true">
       <figure className="about-photo about-photo-1">
         <img
-          src="/assets/about-photo-main.jpg"
+          src="/assets/about-photo-main.webp"
           alt=""
           loading={eager ? 'eager' : 'lazy'}
           fetchPriority={eager ? 'high' : 'auto'}
@@ -603,7 +595,7 @@ function PhotoWall({ className = '', eager = false }) {
       </figure>
       <figure className="about-photo about-photo-2">
         <img
-          src="/assets/about-photo-2-newer.jpg"
+          src="/assets/about-photo-2-newer.webp"
           alt=""
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
@@ -611,7 +603,7 @@ function PhotoWall({ className = '', eager = false }) {
       </figure>
       <figure className="about-photo about-photo-3">
         <img
-          src="/assets/about-photo-3-new.jpg"
+          src="/assets/about-photo-3-new.webp"
           alt=""
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
@@ -1334,22 +1326,12 @@ function Contact({ t }) {
 }
 
 function App() {
-  const [lang, setLang] = useState('zh');
-  const [theme, setTheme] = useState(() => {
-    const saved = window.localStorage.getItem('xushaobo-theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
+  const [lang, setLang] = useState('zh');
   const t = copy[lang];
   const rawPathname = window.location.pathname;
   const pathname = rawPathname.startsWith('/about') || rawPathname.startsWith('/resume') ? '/' : rawPathname;
   const projectSlug = pathname.startsWith('/projects/') ? pathname.replace('/projects/', '').split('/')[0] : '';
   const isProjectPage = Boolean(projectSlug);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem('xushaobo-theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     if (rawPathname.startsWith('/about')) {
@@ -1363,7 +1345,7 @@ function App() {
   return (
     <>
       <div className="grid-background" aria-hidden="true" />
-      <Header lang={lang} setLang={setLang} t={t} theme={theme} setTheme={setTheme} />
+      <Header lang={lang} setLang={setLang} t={t} />
       <main className={isProjectPage ? 'page-main' : ''}>
         {projectSlug === 'in-progress' ? (
           <InProgressPage />
