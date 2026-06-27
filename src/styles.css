@@ -828,15 +828,15 @@ img {
 }
 
 .hero-photo-wall.is-single {
-  width: min(100%, 430px);
-  min-height: 520px;
+  width: min(100%, 640px);
+  min-height: 560px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   justify-self: center;
 }
 
 .hero-photo-wall.is-single .about-photo-3 {
-  min-height: 520px;
+  min-height: 560px;
   transform: rotate(-1deg);
 }
 
@@ -898,19 +898,19 @@ img {
 .about-photo-placeholder-line.line-1 {
   top: 54px;
   left: 42px;
-  width: 180px;
+  width: 240px;
 }
 
 .about-photo-placeholder-line.line-2 {
   top: 82px;
   left: 42px;
-  width: 128px;
+  width: 182px;
 }
 
 .about-photo-placeholder-line.line-3 {
   top: 110px;
   left: 42px;
-  width: 96px;
+  width: 132px;
 }
 
 .about-photo-placeholder-card {
@@ -922,22 +922,22 @@ img {
 .about-photo-placeholder-card.card-1 {
   top: 168px;
   left: 42px;
-  width: 220px;
-  height: 140px;
+  width: 290px;
+  height: 158px;
 }
 
 .about-photo-placeholder-card.card-2 {
-  top: 206px;
+  top: 188px;
   right: 42px;
-  width: 112px;
-  height: 112px;
+  width: 152px;
+  height: 132px;
 }
 
 .about-photo-placeholder-card.card-3 {
   bottom: 54px;
   left: 42px;
   right: 42px;
-  height: 118px;
+  height: 138px;
 }
 
 .about-photo {
