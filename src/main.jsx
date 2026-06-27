@@ -17,7 +17,7 @@ const copy = {
     role: 'PRODUCT / UX DESIGNER',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: '简历速览',
-    homeResumeLead: '把正式简历里的关键信息按模块拆开放在这里，方便在浏览项目之前快速了解我的背景、经历与能力。',
+    homeResumeLead: '',
     homeResumeSideNote: '适合用于产品体验设计 / UIUX 相关岗位投递，也可以通过右侧入口直接下载完整 PDF 简历。',
     homeResumeTags: ['产品思维', 'Vibe coding', '体验设计', 'AI工具'],
     homeResumeSections: [
@@ -126,7 +126,7 @@ const copy = {
     role: 'PRODUCT / UX DESIGNER',
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: 'Resume Snapshot',
-    homeResumeLead: 'A structured text version of the resume, translated into quick modules so the core background, experience, and capabilities are easy to scan before the case studies.',
+    homeResumeLead: '',
     homeResumeSideNote: 'Useful as a quick hiring snapshot for Product Experience / UIUX roles, with the full PDF resume available on the right.',
     homeResumeTags: ['Product Thinking', 'Vibe Coding', 'Experience Design', 'AI Tools'],
     homeResumeSections: [
@@ -752,7 +752,7 @@ function HomeResumeModule({ t }) {
           <p className="home-resume-eyebrow">{t.homeResumeEyebrow}</p>
           <div className="home-resume-heading">
             <h2>{t.homeResumeTitle}</h2>
-            <p>{t.homeResumeLead}</p>
+            {t.homeResumeLead ? <p>{t.homeResumeLead}</p> : null}
           </div>
           <div className="home-resume-tag-list" aria-label="Resume tags">
             {t.homeResumeTags.map((tag) => (
