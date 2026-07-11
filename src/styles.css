@@ -1450,6 +1450,21 @@ img {
   overflow: hidden;
 }
 
+.file-tool-image-page {
+  padding-inline: 34px;
+}
+
+.file-tool-image-gallery {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+}
+
+.file-tool-image-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .project-shell {
   display: block;
 }

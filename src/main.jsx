@@ -1209,6 +1209,24 @@ function ProjectDetail({ t, lang, slug }) {
 
   if (!project || !card) return null;
 
+  if (slug === 'file-tool') {
+    return (
+      <section className="project-page section-shell file-tool-image-page" id="project-detail">
+        <div className="detail-rail">
+          <DetailBackLink />
+        </div>
+        <article className="file-tool-image-gallery">
+          <img
+            src="/assets/file-tool/01-frame-1750.jpg"
+            alt="文件生成后台工具系统设计 - 项目展示图 1"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </article>
+      </section>
+    );
+  }
+
   return (
     <section className={`project-page section-shell ${slug === 'social-app' ? 'social-detail-page' : ''}`} id="project-detail">
       <div className="detail-rail">
