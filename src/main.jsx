@@ -77,28 +77,28 @@ const copy = {
         title: '不夜星球社交APP产品体验设计优化',
         subtitle: '围绕用户核心路径，优化产品结构与社交互动细节',
         meta: 'APP / UX / 产品设计',
-        image: '/assets/cover-social-app.jpg',
+        image: '/assets/cover-social-app.webp',
         href: '/projects/social-app',
       },
       {
         title: '文件生成后台工具系统设计',
         subtitle: '从业务流程出发，重构信息架构与操作流程',
         meta: 'B端系统 / UX / 界面设计',
-        image: '/assets/cover-backend-tool.jpg',
+        image: '/assets/cover-backend-tool.webp',
         href: '/projects/file-tool',
       },
       {
         title: '网站视觉优化改版设计',
         subtitle: '强化信息层级与视觉一致性，提升品牌展示和用户感知',
         meta: '网页 / 视觉设计 / UI设计',
-        image: '/assets/cover-web-redesign.jpg',
+        image: '/assets/cover-web-redesign.webp',
         href: '/projects/web-redesign',
       },
       {
         title: '作品开发中',
         subtitle: '更多项目正在整理与完善，保持更新',
         meta: 'More works / 敬请期待',
-        image: '/assets/cover-wip.jpg',
+        image: '/assets/cover-wip.webp',
         href: '/projects/in-progress',
         muted: true,
       },
@@ -198,28 +198,28 @@ const copy = {
         title: 'Sleepless Planet Social App Experience Optimization',
         subtitle: 'Optimizing core user paths, product structure, and social interaction details.',
         meta: 'App / UX / Product Design',
-        image: '/assets/cover-social-app.jpg',
+        image: '/assets/cover-social-app.webp',
         href: '/projects/social-app',
       },
       {
         title: 'File Generation Back-office Tool System Design',
         subtitle: 'Restructuring information architecture and workflows from business processes.',
         meta: 'B2B System / UX / UI Design',
-        image: '/assets/cover-backend-tool.jpg',
+        image: '/assets/cover-backend-tool.webp',
         href: '/projects/file-tool',
       },
       {
         title: 'Website Visual Optimization Redesign',
         subtitle: 'Improving information hierarchy, visual consistency, and brand perception.',
         meta: 'Website / Visual Design / UI',
-        image: '/assets/cover-web-redesign.jpg',
+        image: '/assets/cover-web-redesign.webp',
         href: '/projects/web-redesign',
       },
       {
         title: 'Works in Development',
         subtitle: 'More projects are being organized and refined for publication.',
         meta: 'More works / Coming soon',
-        image: '/assets/cover-wip.jpg',
+        image: '/assets/cover-wip.webp',
         href: '/projects/in-progress',
         muted: true,
       },
@@ -740,7 +740,7 @@ function Hero({ t }) {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="idea-card-visual" aria-hidden="true">
-              <img src="/assets/hero-illustration.jpg" alt="" loading="lazy" decoding="async" />
+        <img src="/assets/hero-illustration.webp" alt="" loading="lazy" decoding="async" />
               <div className="idea-card-laptop">
                 <span className="idea-card-screen" />
                 <span className="idea-card-base" />
@@ -871,7 +871,7 @@ function InProgressPage() {
 
         <div className="in-progress-visual" aria-hidden="true">
           <div className="in-progress-miner-wrap">
-            <img src="/assets/in-progress-miner.jpg" alt="" className="in-progress-scene" loading="lazy" decoding="async" />
+        <img src="/assets/in-progress-miner.webp" alt="" className="in-progress-scene" loading="lazy" decoding="async" />
           </div>
           <p className="in-progress-caption">项目开发中</p>
         </div>
