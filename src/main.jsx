@@ -1324,11 +1324,13 @@ function ProjectDetail({ t, lang, slug }) {
 
   if (slug === 'file-tool') {
     return (
-      <section className="project-page section-shell file-tool-image-page" id="project-detail">
-        <div className="detail-rail">
-          <DetailBackLink />
-        </div>
-        <FileToolDashboard />
+      <section className="file-tool-svg-page" id="project-detail">
+        <img
+          src="/assets/file-tool/01-frame-1750.svg"
+          alt="文件生成后台工具系统设计完整项目展示"
+          decoding="async"
+          fetchPriority="high"
+        />
       </section>
     );
   }

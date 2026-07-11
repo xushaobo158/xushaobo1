@@ -1454,6 +1454,19 @@ img {
   padding-inline: 34px;
 }
 
+.file-tool-svg-page {
+  width: min(100%, 1920px);
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+}
+
+.file-tool-svg-page > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .file-tool-html-case {
   position: relative;
   width: min(100%, 1600px);
@@ -3307,6 +3320,10 @@ img {
 }
 
 @media (max-width: 760px) {
+  .file-tool-svg-page {
+    width: 100%;
+  }
+
   .file-tool-image-page {
     padding-inline: 14px;
   }
