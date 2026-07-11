@@ -1455,6 +1455,7 @@ img {
 }
 
 .file-tool-svg-page {
+  --file-tool-artwork-width: 980px;
   width: 100%;
   margin: 0 auto;
   padding: 0 28px 52px;
@@ -1464,7 +1465,7 @@ img {
 
 .file-tool-return-rail {
   display: flex;
-  width: min(100%, 1180px);
+  width: min(100%, var(--file-tool-artwork-width));
   align-items: center;
   min-height: 72px;
   margin: 0 auto;
@@ -1473,7 +1474,7 @@ img {
 
 .file-tool-svg-page > img {
   display: block;
-  width: min(100%, 1180px);
+  width: min(100%, var(--file-tool-artwork-width));
   height: auto;
   margin: 0 auto;
   background: #fff;
