@@ -1454,16 +1454,152 @@ img {
   padding-inline: 34px;
 }
 
-.file-tool-image-gallery {
+.file-tool-html-case {
+  position: relative;
   width: min(100%, 1600px);
+  min-height: 980px;
   margin: 0 auto;
+  padding: clamp(70px, 9vw, 150px) clamp(20px, 5vw, 84px) 34px;
+  overflow: hidden;
+  background: #f8fbff;
+  color: #192232;
 }
 
-.file-tool-image-gallery img {
-  display: block;
-  width: 100%;
-  height: auto;
+.file-tool-wordmark {
+  position: absolute;
+  top: clamp(24px, 3.5vw, 56px);
+  left: clamp(24px, 5vw, 84px);
+  color: #2b65ec;
+  font-size: clamp(44px, 11vw, 180px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.9;
+  opacity: 0.82;
+  white-space: nowrap;
 }
+
+.file-tool-dashboard-frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  min-height: 650px;
+  margin-top: clamp(52px, 7vw, 124px);
+  overflow: hidden;
+  border: 6px solid #121722;
+  border-radius: 24px;
+  background: #f8fbff;
+  box-shadow: 0 24px 58px rgba(30, 76, 165, 0.25);
+  transform: rotate(-2deg);
+}
+
+.file-tool-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 16px 18px;
+  background: #fff;
+  border-right: 1px solid #dce6f7;
+}
+
+.file-tool-sidebar > strong {
+  color: #124db7;
+  font-size: 14px;
+}
+
+.file-tool-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.file-tool-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  color: #5c6a83;
+  border-radius: 5px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.file-tool-sidebar a.is-active {
+  background: #1558d9;
+  color: #fff;
+}
+
+.file-tool-return {
+  margin-top: auto;
+  color: #6280b9;
+  font-size: 12px;
+}
+
+.file-tool-workspace { min-width: 0; padding: 18px 20px 20px; background: #f7f9fd; }
+
+.file-tool-topbar,
+.file-tool-topbar > div,
+.file-tool-heading,
+.file-tool-panel-title,
+.file-tool-record .file-tool-panel-title {
+  display: flex;
+  align-items: center;
+}
+
+.file-tool-topbar { justify-content: space-between; gap: 16px; }
+.file-tool-topbar label { display: flex; align-items: center; gap: 6px; width: min(330px, 42%); padding: 8px 12px; color: #9cadc8; border-radius: 22px; background: #fff; }
+.file-tool-topbar input { width: 100%; border: 0; outline: 0; background: transparent; color: #26324a; font: inherit; font-size: 12px; }
+.file-tool-topbar > div { gap: 8px; color: #52647e; font-size: 12px; }
+.file-tool-topbar button { display: grid; width: 26px; height: 26px; place-items: center; border: 0; border-radius: 50%; color: #1558d9; background: #eaf1ff; }
+.file-tool-user { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; color: #fff; background: #1558d9; font-weight: 700; }
+
+.file-tool-heading { justify-content: space-between; gap: 16px; margin: 24px 0 18px; }
+.file-tool-heading h1 { margin: 0; color: #2861d9; font-size: clamp(18px, 2vw, 28px); line-height: 1.25; }
+.file-tool-heading > button,
+.file-tool-panel-title > button,
+.file-tool-record .file-tool-panel-title > button { border: 0; border-radius: 6px; padding: 9px 16px; color: #fff; background: #1558d9; font: inherit; font-size: 12px; }
+
+.file-tool-metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.file-tool-metric { display: grid; gap: 6px; min-height: 104px; padding: 14px; border-radius: 8px; background: #fff; box-shadow: 0 6px 16px rgba(39, 77, 139, 0.04); }
+.file-tool-metric span { color: #6c7d97; font-size: 12px; }
+.file-tool-metric strong { color: #152031; font-size: clamp(22px, 2.15vw, 34px); }
+.file-tool-metric small { color: #6684ba; font-size: 10px; }
+.file-tool-metric.danger small { color: #f06464; }
+.file-tool-metric.success small { color: #44a276; }
+
+.file-tool-dashboard-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 0.36fr); gap: 14px; margin-top: 16px; }
+.file-tool-task-panel,
+.file-tool-alert-panel,
+.file-tool-record { padding: 16px; border-radius: 8px; background: #fff; box-shadow: 0 6px 16px rgba(39, 77, 139, 0.04); }
+.file-tool-panel-title { justify-content: space-between; gap: 12px; }
+.file-tool-panel-title h2 { margin: 0; font-size: 15px; }
+.file-tool-panel-title div { display: flex; gap: 6px; }
+.file-tool-panel-title div button { padding: 6px 8px; border: 0; border-radius: 4px; color: #7585a0; background: #f5f7fb; font: inherit; font-size: 10px; }
+.file-tool-panel-title div button.is-selected { color: #fff; background: #1558d9; }
+.file-tool-table-wrap { margin-top: 14px; overflow-x: auto; }
+.file-tool-task-panel table { width: 100%; min-width: 570px; border-collapse: collapse; font-size: 10px; }
+.file-tool-task-panel th { padding: 10px 6px; color: #5d6b80; background: #f4f7fc; font-weight: 500; text-align: left; white-space: nowrap; }
+.file-tool-task-panel td { padding: 11px 6px; border-bottom: 1px solid #edf1f7; color: #46546b; white-space: nowrap; }
+.file-tool-task-panel td:last-child button { border: 0; color: #2861d9; background: transparent; font: inherit; font-size: 10px; }
+.file-tool-status { padding: 4px 6px; border-radius: 10px; color: #e96464; background: #fff0f0; }
+.file-tool-pagination { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; color: #71819a; font-size: 11px; }
+.file-tool-pagination b { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 4px; color: #fff; background: #1558d9; }
+
+.file-tool-alert-panel > p { margin: 14px 0 10px; color: #8190a8; font-size: 10px; }
+.file-tool-alert { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid #edf1f7; color: #f1736b; }
+.file-tool-alert > div { display: grid; gap: 2px; min-width: 0; }
+.file-tool-alert strong { color: #536279; font-size: 10px; }
+.file-tool-alert span { overflow: hidden; color: #8491a5; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.file-tool-alert button { border: 0; color: #8d6fe9; background: #f5f0ff; font: inherit; font-size: 9px; }
+.file-tool-alert-chart { display: flex; align-items: end; gap: 6px; height: 70px; margin-top: 14px; padding: 8px; border-radius: 5px; background: #f7f9fd; }
+.file-tool-alert-chart span { width: 14%; border-radius: 4px 4px 0 0; background: #5b8cea; }
+.file-tool-alert-chart span:nth-child(1) { height: 32%; }.file-tool-alert-chart span:nth-child(2) { height: 46%; }.file-tool-alert-chart span:nth-child(3) { height: 68%; }.file-tool-alert-chart span:nth-child(4) { height: 45%; }.file-tool-alert-chart span:nth-child(5) { height: 84%; }
+
+.file-tool-record { display: grid; gap: 6px; margin-top: 14px; }
+.file-tool-record .file-tool-panel-title > div span { padding: 4px 7px; border-radius: 10px; color: #5f8ee8; background: #eef4ff; font-size: 10px; }
+.file-tool-record .file-tool-panel-title > div span:nth-child(2) { color: #4ba278; background: #effaf4; }.file-tool-record .file-tool-panel-title > div span:nth-child(3) { color: #e59255; background: #fff4ea; }
+.file-tool-record > strong { margin-top: 8px; color: #233149; font-size: 12px; }.file-tool-record > p { margin: 0; color: #8391a7; font-size: 10px; }
+
+.file-tool-study { position: absolute; right: clamp(28px, 7vw, 120px); top: 62%; padding: 18px 44px; border-radius: 999px; color: #fff; background: #f64d4d; font-size: clamp(16px, 2vw, 28px); font-weight: 700; transform: translateY(-50%); }
+.file-tool-case-meta { display: flex; justify-content: space-between; gap: 18px; margin-top: 34px; color: #1e2637; font-size: clamp(12px, 1.4vw, 20px); font-weight: 600; }
 
 .project-shell {
   display: block;
@@ -2980,6 +3116,23 @@ img {
 }
 
 @media (max-width: 1180px) {
+  .file-tool-dashboard-frame {
+    grid-template-columns: 145px minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .file-tool-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .file-tool-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .file-tool-study {
+    right: 34px;
+  }
+
   .hero-cursor-note {
     display: none;
   }
@@ -3154,6 +3307,126 @@ img {
 }
 
 @media (max-width: 760px) {
+  .file-tool-image-page {
+    padding-inline: 14px;
+  }
+
+  .file-tool-html-case {
+    min-height: 0;
+    padding: 70px 12px 20px;
+  }
+
+  .file-tool-wordmark {
+    top: 30px;
+    left: 16px;
+    font-size: clamp(37px, 12vw, 62px);
+  }
+
+  .file-tool-dashboard-frame {
+    display: block;
+    margin-top: 34px;
+    border-width: 2px;
+    border-radius: 14px;
+    transform: none;
+  }
+
+  .file-tool-sidebar {
+    gap: 12px;
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid #dce6f7;
+  }
+
+  .file-tool-sidebar nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .file-tool-sidebar a {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .file-tool-return {
+    display: none;
+  }
+
+  .file-tool-workspace {
+    padding: 12px;
+  }
+
+  .file-tool-topbar > div strong,
+  .file-tool-topbar > div > svg {
+    display: none;
+  }
+
+  .file-tool-topbar label {
+    width: 72%;
+  }
+
+  .file-tool-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 16px 0;
+  }
+
+  .file-tool-heading > button {
+    align-self: stretch;
+  }
+
+  .file-tool-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .file-tool-metric {
+    min-height: 84px;
+    padding: 11px;
+  }
+
+  .file-tool-metric:last-child {
+    grid-column: span 2;
+  }
+
+  .file-tool-dashboard-grid {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .file-tool-task-panel,
+  .file-tool-alert-panel,
+  .file-tool-record {
+    padding: 12px;
+  }
+
+  .file-tool-panel-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .file-tool-panel-title div {
+    width: 100%;
+  }
+
+  .file-tool-record .file-tool-panel-title > button {
+    margin-left: auto;
+  }
+
+  .file-tool-study {
+    position: static;
+    display: inline-block;
+    margin: 16px 0 0;
+    padding: 12px 22px;
+    font-size: 16px;
+    transform: none;
+  }
+
+  .file-tool-case-meta {
+    display: grid;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
   .site-header {
     top: 10px;
     width: calc(100% - 20px);

@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useId, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowLeft, ArrowUpRight, Copy, Download, Globe, Lightbulb, Mail, MessageCircle, Phone } from 'lucide-react';
+import { AlertTriangle, ArrowDown, ArrowLeft, ArrowUpRight, Bell, CheckCircle2, ChevronDown, ClipboardList, Copy, Download, FileText, FolderInput, Globe, Lightbulb, Mail, MessageCircle, Phone, Search, SlidersHorizontal } from 'lucide-react';
 import './styles.css';
 
 const copy = {
@@ -1199,6 +1199,119 @@ function SocialProjectSection({ section, index }) {
   );
 }
 
+const fileToolMetrics = [
+  ['项目总数', '24项', '较上周 +2', 'neutral'],
+  ['任务进行中', '8项', '3项待处理', 'notice'],
+  ['今日生成', '36项', '成功生成33次', 'success'],
+  ['生成成功率', '92.4%', '近7日平均', 'neutral'],
+  ['异常任务', '5项', '需优先处理', 'danger'],
+];
+
+const fileToolTasks = [
+  ['BCM_Config_任务', '智能座舱配置生成', '解析失败', '3', '张工', '10 分钟前', '查看异常'],
+  ['ADAS_Signal_任务', 'ADAS 测试项目', '待配置', '0', '李工', '30 分钟前', '继续配置'],
+  ['Body_Control_任务', '车身域项目', '可生成', '0', '王工', '1 小时前', '开始生成'],
+  ['HU_Display_任务', '座舱显示项目', '待校验', '0', '陈工', '2 小时前', '运行校验'],
+  ['TBOX_Rule_任务', '车联网项目', '生成完成', '1', '田工', '昨天', '查看报告'],
+];
+
+function FileToolDashboard() {
+  return (
+    <article className="file-tool-html-case" aria-label="文件配置平台系统设计展示">
+      <div className="file-tool-wordmark" aria-hidden="true">PROJECT CONFIG</div>
+      <div className="file-tool-dashboard-frame">
+        <aside className="file-tool-sidebar">
+          <strong>文件配置平台系统</strong>
+          <nav aria-label="文件配置平台导航">
+            <a className="is-active" href="#任务管理"><ClipboardList size={16} />任务管理</a>
+            <a href="#文件导入"><FolderInput size={16} />文件导入</a>
+            <a href="#规则配置"><SlidersHorizontal size={16} />规则配置</a>
+            <a href="#结果报告"><FileText size={16} />结果报告</a>
+          </nav>
+          <span className="file-tool-return">← 返回主工具</span>
+        </aside>
+
+        <div className="file-tool-workspace">
+          <header className="file-tool-topbar">
+            <label><Search size={15} /><input aria-label="搜索任务" placeholder="搜索" /></label>
+            <div>
+              <button aria-label="通知"><Bell size={15} /></button>
+              <button aria-label="设置"><SlidersHorizontal size={15} /></button>
+              <span className="file-tool-user">D</span>
+              <strong>DengLu</strong>
+              <ChevronDown size={14} />
+            </div>
+          </header>
+
+          <div className="file-tool-heading">
+            <h1>欢迎回来！当前有 3 项任务待处理。</h1>
+            <button>继续处理</button>
+          </div>
+
+          <div className="file-tool-metrics">
+            {fileToolMetrics.map(([label, value, hint, tone]) => (
+              <article key={label} className={`file-tool-metric ${tone}`}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+                <small>{hint}</small>
+              </article>
+            ))}
+          </div>
+
+          <div className="file-tool-dashboard-grid">
+            <section className="file-tool-task-panel" id="任务管理">
+              <div className="file-tool-panel-title">
+                <h2>待处理任务</h2>
+                <div><button className="is-selected">全部任务</button><button>我的任务</button><button>异常任务</button></div>
+              </div>
+              <div className="file-tool-table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>任务名称</th><th>所属项目</th><th>当前阶段</th><th>异常数量</th><th>负责人</th><th>更新时间</th><th>操作</th></tr>
+                  </thead>
+                  <tbody>
+                    {fileToolTasks.map((task) => (
+                      <tr key={task[0]}>
+                        <td>{task[0]}</td><td>{task[1]}</td><td><span className="file-tool-status">{task[2]}</span></td><td>{task[3]}</td><td>{task[4]}</td><td>{task[5]}</td><td><button>{task[6]}</button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="file-tool-pagination"><span>‹</span><b>1</b><span>›</span><small>前往　1　页</small></div>
+            </section>
+
+            <aside className="file-tool-alert-panel">
+              <div className="file-tool-panel-title"><h2>异常提醒</h2><button>查看全部</button></div>
+              <p>当前有 5 项异常，其中 2 项需优先处理</p>
+              {fileToolTasks.slice(0, 4).map((task, index) => (
+                <div className="file-tool-alert" key={task[0]}>
+                  {index === 0 ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
+                  <div><strong>{task[0]}</strong><span>{index === 0 ? '解析失败，请与定义文件校验' : '校验参数 2 个字段未完成映射'}</span></div>
+                  <button>查看异常</button>
+                </div>
+              ))}
+              <div className="file-tool-alert-chart"><span /><span /><span /><span /><span /></div>
+            </aside>
+          </div>
+
+          <section className="file-tool-record">
+            <div className="file-tool-panel-title"><h2>最近生成记录</h2><div><span>今日生成 36</span><span>成功 33</span><span>警告 2</span></div><button>查看全部</button></div>
+            <strong>▌ Batch_20260315_001</strong>
+            <p>智能座舱配置生成 · A / B 文件生成</p>
+          </section>
+        </div>
+      </div>
+      <span className="file-tool-study">UI/UX STUDY</span>
+      <footer className="file-tool-case-meta">
+        <span>项目角色：交互设计师</span>
+        <span>项目时间：2025.12-2026.05</span>
+        <span>设计工具：codex　figma</span>
+      </footer>
+    </article>
+  );
+}
+
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
   const card = t.cards.find((item) => item.href === `/projects/${slug}`);
@@ -1215,14 +1328,7 @@ function ProjectDetail({ t, lang, slug }) {
         <div className="detail-rail">
           <DetailBackLink />
         </div>
-        <article className="file-tool-image-gallery">
-          <img
-            src="/assets/file-tool/01-frame-1750.jpg"
-            alt="文件生成后台工具系统设计 - 项目展示图 1"
-            decoding="async"
-            fetchPriority="high"
-          />
-        </article>
+        <FileToolDashboard />
       </section>
     );
   }
