@@ -1329,7 +1329,7 @@ function ProjectDetail({ t, lang, slug }) {
           <DetailBackLink />
         </div>
         <img
-          src="/assets/file-tool/01-frame-1750.svg"
+          src="/assets/file-tool/01-frame-1750.webp"
           alt="文件生成后台工具系统设计完整项目展示"
           decoding="async"
           fetchPriority="high"
