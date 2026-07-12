@@ -1318,7 +1318,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/03-user-interviews.webp',
   '/assets/file-tool/04-pain-points.webp',
   '/assets/file-tool/05-design-insights-v2.webp',
-  '/assets/file-tool/06-optimization-path.webp',
+  '/assets/file-tool/06-optimization-path-v2.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
@@ -1345,7 +1345,7 @@ function ProjectDetail({ t, lang, slug }) {
               alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
               decoding="async"
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              loading={index === 0 ? 'eager' : 'lazy'}
+              loading={index === 0 || index === fileToolCaseImages.length - 1 ? 'eager' : 'lazy'}
             />
           ))}
         </div>
