@@ -1316,6 +1316,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/01-frame-1750.webp',
   '/assets/file-tool/02-project-background.webp',
   '/assets/file-tool/03-user-interviews.webp',
+  '/assets/file-tool/04-pain-points.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
