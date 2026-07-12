@@ -1312,6 +1312,11 @@ function FileToolDashboard() {
   );
 }
 
+const fileToolCaseImages = [
+  '/assets/file-tool/01-frame-1750.webp',
+  '/assets/file-tool/02-project-background.webp',
+];
+
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
   const card = t.cards.find((item) => item.href === `/projects/${slug}`);
@@ -1328,12 +1333,18 @@ function ProjectDetail({ t, lang, slug }) {
         <div className="file-tool-return-rail">
           <DetailBackLink />
         </div>
-        <img
-          src="/assets/file-tool/01-frame-1750.webp"
-          alt="文件生成后台工具系统设计完整项目展示"
-          decoding="async"
-          fetchPriority="high"
-        />
+        <div className="file-tool-case-gallery">
+          {fileToolCaseImages.map((src, index) => (
+            <img
+              key={src}
+              src={src}
+              alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
+              decoding="async"
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+        </div>
       </section>
     );
   }

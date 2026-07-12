@@ -1472,11 +1472,16 @@ img {
   padding: 16px 0;
 }
 
-.file-tool-svg-page > img {
-  display: block;
+.file-tool-case-gallery {
+  display: grid;
   width: min(100%, var(--file-tool-artwork-width));
-  height: auto;
   margin: 0 auto;
+}
+
+.file-tool-case-gallery > img {
+  display: block;
+  width: 100%;
+  height: auto;
   background: #fff;
 }
 
