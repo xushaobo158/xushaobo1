@@ -1320,6 +1320,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/05-design-insights-v2.webp',
   '/assets/file-tool/06-optimization-path-v2.webp',
   '/assets/file-tool/07-file-import-kr1.webp',
+  '/assets/file-tool/08-rule-progress-kr2.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
