@@ -1333,6 +1333,39 @@ function ProjectDetail({ t, lang, slug }) {
   const currentIndex = projectSlugs.indexOf(slug);
   const nextSlug = currentIndex >= 0 ? projectSlugs[(currentIndex + 1) % projectSlugs.length] : projectSlugs[0];
   const nextCard = t.cards.find((item) => item.href === `/projects/${nextSlug}`);
+  const [activeCaseImage, setActiveCaseImage] = useState(null);
+  const fileToolGalleryRef = React.useRef(null);
+
+  useEffect(() => {
+    if (slug !== 'file-tool' || !fileToolGalleryRef.current) return undefined;
+
+    const galleryItems = fileToolGalleryRef.current.querySelectorAll('.file-tool-gallery-item');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 },
+    );
+
+    galleryItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, [slug]);
+
+  useEffect(() => {
+    if (!activeCaseImage) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setActiveCaseImage(null);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeCaseImage]);
 
   if (!project || !card) return null;
 
@@ -1342,18 +1375,32 @@ function ProjectDetail({ t, lang, slug }) {
         <div className="file-tool-return-rail">
           <DetailBackLink />
         </div>
-        <div className="file-tool-case-gallery">
+        <div className="file-tool-case-gallery" ref={fileToolGalleryRef}>
           {fileToolCaseImages.map((src, index) => (
-            <img
+            <button
+              className="file-tool-gallery-item"
               key={src}
-              src={src}
-              alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
-              decoding="async"
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-              loading={index === 0 || index === fileToolCaseImages.length - 1 ? 'eager' : 'lazy'}
-            />
+              type="button"
+              onClick={() => setActiveCaseImage({ src, index })}
+              aria-label={`放大查看文件生成后台工具系统设计项目展示 ${index + 1}`}
+            >
+              <img
+                src={src}
+                alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
+                decoding="async"
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+                loading={index === 0 || index === fileToolCaseImages.length - 1 ? 'eager' : 'lazy'}
+              />
+              <span className="file-tool-gallery-hint" aria-hidden="true">点击查看原图</span>
+            </button>
           ))}
         </div>
+        {activeCaseImage && (
+          <div className="file-tool-lightbox" role="dialog" aria-modal="true" aria-label={`项目展示 ${activeCaseImage.index + 1}`} onClick={() => setActiveCaseImage(null)}>
+            <button className="file-tool-lightbox-close" type="button" aria-label="关闭原图预览" onClick={() => setActiveCaseImage(null)}>关闭</button>
+            <img src={activeCaseImage.src} alt={`文件生成后台工具系统设计项目展示 ${activeCaseImage.index + 1}`} onClick={(event) => event.stopPropagation()} />
+          </div>
+        )}
       </section>
     );
   }
