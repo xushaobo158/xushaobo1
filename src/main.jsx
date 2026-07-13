@@ -1322,6 +1322,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/07-file-import-kr1.webp',
   '/assets/file-tool/08-rule-progress-kr2.webp',
   '/assets/file-tool/09-export-status-kr3.webp',
+  '/assets/file-tool/10-usability-test.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
