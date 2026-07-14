@@ -3952,7 +3952,11 @@ img {
 
   .contact-illustration {
     min-height: 128px;
-    justify-content: start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    padding-left: 6px;
   }
 
   .contact-illustration svg {
@@ -3961,8 +3965,10 @@ img {
   }
 
   .contact-illustration span {
-    top: 22px;
-    right: 28px;
+    position: relative;
+    top: auto;
+    right: auto;
+    flex: 0 0 auto;
     width: 30px;
     height: 30px;
   }
