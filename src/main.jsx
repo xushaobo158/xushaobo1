@@ -1333,7 +1333,6 @@ function ProjectDetail({ t, lang, slug }) {
   const currentIndex = projectSlugs.indexOf(slug);
   const nextSlug = currentIndex >= 0 ? projectSlugs[(currentIndex + 1) % projectSlugs.length] : projectSlugs[0];
   const nextCard = t.cards.find((item) => item.href === `/projects/${nextSlug}`);
-  const [activeCaseImage, setActiveCaseImage] = useState(null);
   const fileToolGalleryRef = React.useRef(null);
 
   useEffect(() => {
@@ -1356,17 +1355,6 @@ function ProjectDetail({ t, lang, slug }) {
     return () => observer.disconnect();
   }, [slug]);
 
-  useEffect(() => {
-    if (!activeCaseImage) return undefined;
-
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') setActiveCaseImage(null);
-    };
-
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [activeCaseImage]);
-
   if (!project || !card) return null;
 
   if (slug === 'file-tool') {
@@ -1377,13 +1365,7 @@ function ProjectDetail({ t, lang, slug }) {
         </div>
         <div className="file-tool-case-gallery" ref={fileToolGalleryRef}>
           {fileToolCaseImages.map((src, index) => (
-            <button
-              className="file-tool-gallery-item"
-              key={src}
-              type="button"
-              onClick={() => setActiveCaseImage({ src, index })}
-              aria-label={`放大查看文件生成后台工具系统设计项目展示 ${index + 1}`}
-            >
+            <figure className="file-tool-gallery-item" key={src}>
               <img
                 src={src}
                 alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
@@ -1391,16 +1373,9 @@ function ProjectDetail({ t, lang, slug }) {
                 fetchPriority={index === 0 ? 'high' : 'auto'}
                 loading={index === 0 || index === fileToolCaseImages.length - 1 ? 'eager' : 'lazy'}
               />
-              <span className="file-tool-gallery-hint" aria-hidden="true">点击查看原图</span>
-            </button>
+            </figure>
           ))}
         </div>
-        {activeCaseImage && (
-          <div className="file-tool-lightbox" role="dialog" aria-modal="true" aria-label={`项目展示 ${activeCaseImage.index + 1}`} onClick={() => setActiveCaseImage(null)}>
-            <button className="file-tool-lightbox-close" type="button" aria-label="关闭原图预览" onClick={() => setActiveCaseImage(null)}>关闭</button>
-            <img src={activeCaseImage.src} alt={`文件生成后台工具系统设计项目展示 ${activeCaseImage.index + 1}`} onClick={(event) => event.stopPropagation()} />
-          </div>
-        )}
       </section>
     );
   }
