@@ -3368,6 +3368,12 @@ img {
 }
 
 @media (max-width: 760px) {
+  .file-tool-gallery-item {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
   .file-tool-svg-page {
     width: 100%;
     padding: 0 14px 28px;
