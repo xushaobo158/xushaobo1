@@ -3701,16 +3701,24 @@ img {
   }
 
   .nav-links {
+    display: grid;
     grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     order: 3;
-    justify-content: space-between;
-    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    gap: 0;
   }
 
   .nav-links a,
   .language-toggle,
   .brand {
     font-size: 0.84rem;
+  }
+
+  .nav-links a {
+    min-width: 0;
+    text-align: center;
   }
 
   .section-shell {
@@ -3943,7 +3951,24 @@ img {
   }
 
   .contact-illustration {
+    min-height: 128px;
     justify-content: start;
+  }
+
+  .contact-illustration svg {
+    width: 88px;
+    height: 88px;
+  }
+
+  .contact-illustration span {
+    top: 22px;
+    right: 28px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact-illustration span::after {
+    inset: 7px;
   }
 
   .contact-copy h2 {
