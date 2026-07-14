@@ -1488,8 +1488,9 @@ img {
   border: 0;
   background: transparent;
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 560ms ease, transform 560ms cubic-bezier(.2, .8, .2, 1);
+  transform: translateY(-24px);
+  will-change: opacity, transform;
+  transition: opacity 620ms ease, transform 620ms cubic-bezier(.16, .82, .24, 1);
 }
 
 .file-tool-gallery-item.is-visible {
