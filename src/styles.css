@@ -3443,6 +3443,23 @@ img {
     padding: 0 14px 28px;
   }
 
+  .file-tool-gallery-hint {
+    display: none;
+  }
+
+  .file-tool-lightbox {
+    padding: 68px 14px 20px;
+  }
+
+  .file-tool-lightbox > img {
+    max-height: calc(100vh - 106px);
+  }
+
+  .file-tool-lightbox-close {
+    top: 12px;
+    right: 14px;
+  }
+
   .file-tool-return-rail {
     min-height: 56px;
     padding: 10px 0;
