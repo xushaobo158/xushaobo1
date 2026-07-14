@@ -820,7 +820,7 @@ function HomeResumeModule({ t }) {
         </div>
         <aside className="home-resume-side">
           <p className="home-resume-side-kicker">{t.homeResumeEyebrow}</p>
-          <a className="resume-download home-resume-download" href="/assets/xushaobo-resume.pdf" download>
+          <a className="resume-download home-resume-download" href="/assets/xushaobo-resume.pdf" download="徐少柏-简历.pdf">
             <Download size={16} strokeWidth={1.9} />
             {t.homeResumeDownload}
           </a>
