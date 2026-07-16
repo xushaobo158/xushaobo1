@@ -828,8 +828,9 @@ img {
 }
 
 .hero-photo-wall.is-single {
-  width: min(100%, 720px);
-  aspect-ratio: 4 / 3;
+  width: min(100%, 590px);
+  min-height: 0;
+  aspect-ratio: 919 / 607;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   justify-self: center;
@@ -840,8 +841,13 @@ img {
   width: 100%;
   height: 100%;
   min-height: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 919 / 607;
   transform: rotate(-1deg);
+}
+
+.hero-photo-wall.is-single .hero-photo-single img {
+  display: block;
+  object-fit: contain;
 }
 
 .hero-visual:hover .hero-photo-wall .about-photo img,
