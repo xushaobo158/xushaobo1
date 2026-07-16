@@ -641,15 +641,14 @@ function PhotoWall({ className = '', eager = false, single = false }) {
   return (
     <div className={className} aria-hidden="true">
       {single ? (
-        <figure className="about-photo about-photo-3 about-photo-placeholder">
-          <div className="about-photo-placeholder-frame">
-            <span className="about-photo-placeholder-line line-1" />
-            <span className="about-photo-placeholder-line line-2" />
-            <span className="about-photo-placeholder-line line-3" />
-            <span className="about-photo-placeholder-card card-1" />
-            <span className="about-photo-placeholder-card card-2" />
-            <span className="about-photo-placeholder-card card-3" />
-          </div>
+        <figure className="about-photo about-photo-3 hero-photo-single">
+          <img
+            src="/assets/hero-photo-black-white.webp"
+            alt=""
+            loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={eager ? 'high' : 'auto'}
+            decoding="async"
+          />
         </figure>
       ) : null}
       {!single ? (
