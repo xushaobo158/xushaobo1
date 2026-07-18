@@ -1332,6 +1332,8 @@ const socialAppCaseImages = [
   '/assets/social-app/04-c4.webp',
   '/assets/social-app/05-c5.webp',
   '/assets/social-app/06-c6.webp',
+  '/assets/social-app/07-c7.webp',
+  '/assets/social-app/08-c8.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
