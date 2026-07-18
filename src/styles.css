@@ -1480,7 +1480,8 @@ img {
   padding-inline: 34px;
 }
 
-.file-tool-svg-page {
+.file-tool-svg-page,
+.project-image-page {
   --file-tool-artwork-width: 1180px;
   width: 100%;
   margin: 0 auto;
@@ -1489,7 +1490,8 @@ img {
   background: var(--bg);
 }
 
-.file-tool-return-rail {
+.file-tool-return-rail,
+.project-image-return-rail {
   display: flex;
   width: min(100%, var(--file-tool-artwork-width));
   align-items: center;
@@ -1498,13 +1500,15 @@ img {
   padding: 16px 0;
 }
 
-.file-tool-case-gallery {
+.file-tool-case-gallery,
+.project-image-gallery {
   display: grid;
   width: min(100%, var(--file-tool-artwork-width));
   margin: 0 auto;
 }
 
-.file-tool-gallery-item {
+.file-tool-gallery-item,
+.project-image-gallery-item {
   position: relative;
   display: block;
   width: 100%;
@@ -1519,12 +1523,14 @@ img {
   transition: opacity 620ms ease, transform 620ms cubic-bezier(.16, .82, .24, 1);
 }
 
-.file-tool-gallery-item.is-visible {
+.file-tool-gallery-item.is-visible,
+.project-image-gallery-item.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.file-tool-gallery-item > img {
+.file-tool-gallery-item > img,
+.project-image-gallery-item > img {
   display: block;
   width: 100%;
   height: auto;
@@ -1532,13 +1538,20 @@ img {
   transition: transform 420ms cubic-bezier(.2, .8, .2, 1), filter 420ms ease;
 }
 
-.file-tool-gallery-item:hover {
+.file-tool-gallery-item:hover,
+.project-image-gallery-item:hover {
   z-index: 1;
 }
 
-.file-tool-gallery-item:hover > img {
+.file-tool-gallery-item:hover > img,
+.project-image-gallery-item:hover > img {
   filter: brightness(1.02) saturate(1.04);
   transform: scale(1.008);
+}
+
+.project-image-gallery-item:hover > img {
+  filter: none;
+  transform: none;
 }
 
 .file-tool-html-case {
@@ -3394,18 +3407,21 @@ img {
 }
 
 @media (max-width: 760px) {
-  .file-tool-gallery-item {
+  .file-tool-gallery-item,
+  .project-image-gallery-item {
     opacity: 1;
     transform: none;
     will-change: auto;
   }
 
-  .file-tool-svg-page {
+  .file-tool-svg-page,
+  .project-image-page {
     width: 100%;
     padding: 0 14px 28px;
   }
 
-  .file-tool-return-rail {
+  .file-tool-return-rail,
+  .project-image-return-rail {
     min-height: 56px;
     padding: 10px 0;
   }

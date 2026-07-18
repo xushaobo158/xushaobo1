@@ -1325,6 +1325,10 @@ const fileToolCaseImages = [
   '/assets/file-tool/11-from-tool-platform.webp',
 ];
 
+const socialAppCaseImages = [
+  '/assets/social-app/01-c1.webp',
+];
+
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
   const card = t.cards.find((item) => item.href === `/projects/${slug}`);
@@ -1332,12 +1336,14 @@ function ProjectDetail({ t, lang, slug }) {
   const currentIndex = projectSlugs.indexOf(slug);
   const nextSlug = currentIndex >= 0 ? projectSlugs[(currentIndex + 1) % projectSlugs.length] : projectSlugs[0];
   const nextCard = t.cards.find((item) => item.href === `/projects/${nextSlug}`);
-  const fileToolGalleryRef = React.useRef(null);
+  const imageGalleryRef = React.useRef(null);
+  const imageCaseImages = slug === 'file-tool' ? fileToolCaseImages : socialAppCaseImages;
+  const isImageCase = slug === 'file-tool' || slug === 'social-app';
 
   useEffect(() => {
-    if (slug !== 'file-tool' || !fileToolGalleryRef.current) return undefined;
+    if (!isImageCase || !imageGalleryRef.current) return undefined;
 
-    const galleryItems = fileToolGalleryRef.current.querySelectorAll('.file-tool-gallery-item');
+    const galleryItems = imageGalleryRef.current.querySelectorAll('.project-image-gallery-item');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1352,25 +1358,25 @@ function ProjectDetail({ t, lang, slug }) {
 
     galleryItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, [slug]);
+  }, [slug, isImageCase]);
 
   if (!project || !card) return null;
 
-  if (slug === 'file-tool') {
+  if (isImageCase) {
     return (
-      <section className="file-tool-svg-page" id="project-detail">
-        <div className="file-tool-return-rail">
+      <section className="project-image-page" id="project-detail">
+        <div className="project-image-return-rail">
           <DetailBackLink />
         </div>
-        <div className="file-tool-case-gallery" ref={fileToolGalleryRef}>
-          {fileToolCaseImages.map((src, index) => (
-            <figure className="file-tool-gallery-item" key={src}>
+        <div className="project-image-gallery" ref={imageGalleryRef}>
+          {imageCaseImages.map((src, index) => (
+            <figure className="project-image-gallery-item" key={src}>
               <img
                 src={src}
-                alt={`文件生成后台工具系统设计项目展示 ${index + 1}`}
+                alt={`${project.title}项目展示 ${index + 1}`}
                 decoding="async"
                 fetchPriority={index === 0 ? 'high' : 'auto'}
-                loading={index === 0 || index === fileToolCaseImages.length - 1 ? 'eager' : 'lazy'}
+                loading={index === 0 || index === imageCaseImages.length - 1 ? 'eager' : 'lazy'}
               />
             </figure>
           ))}
