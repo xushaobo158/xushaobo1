@@ -18,7 +18,7 @@ const copy = {
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: '简历速览',
     homeResumeLead: '',
-    homeResumeSideNote: '适合用于产品体验设计 / UIUX 相关岗位投递，也可以通过右侧入口直接下载完整 PDF 简历。',
+    homeResumeSideNote: '点击上方按钮，即可下载完整 PDF 简历。',
     homeResumeTags: ['产品思维', 'Vibe coding', '体验设计', 'AI工具'],
     homeResumeSections: [
       {
