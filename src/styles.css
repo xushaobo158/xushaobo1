@@ -1487,7 +1487,7 @@ img {
   margin: 0 auto;
   padding: 0 28px 52px;
   overflow: hidden;
-  background: var(--bg);
+  background: #fff;
 }
 
 .file-tool-return-rail,
