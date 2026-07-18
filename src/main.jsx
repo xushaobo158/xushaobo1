@@ -18,7 +18,7 @@ const copy = {
     homeResumeEyebrow: 'RESUME SNAPSHOT',
     homeResumeTitle: '简历速览',
     homeResumeLead: '',
-    homeResumeSideNote: '点击上方按钮，即可下载完整 PDF 简历。',
+    homeResumeSideNote: '点击上方“下载 PDF 简历”按钮，即可获取包含教育背景、项目经历、实习经历与作品集链接的完整 PDF 简历。',
     homeResumeTags: ['产品思维', 'Vibe coding', '体验设计', 'AI工具'],
     homeResumeSections: [
       {
