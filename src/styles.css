@@ -1554,12 +1554,6 @@ img {
   transform: none;
 }
 
-/* The research artwork starts with a large blank white lead-in. Pull it up so it
-   continues directly after the preceding case image without changing either asset. */
-.project-image-gallery-item:nth-child(3) {
-  margin-top: -96px;
-}
-
 .file-tool-html-case {
   position: relative;
   width: min(100%, 1600px);
@@ -3418,10 +3412,6 @@ img {
     opacity: 1;
     transform: none;
     will-change: auto;
-  }
-
-  .project-image-gallery-item:nth-child(3) {
-    margin-top: -42px;
   }
 
   .file-tool-svg-page,
