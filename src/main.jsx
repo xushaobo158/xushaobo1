@@ -1327,6 +1327,7 @@ const fileToolCaseImages = [
 
 const socialAppCaseImages = [
   '/assets/social-app/01-c1.webp',
+  '/assets/social-app/02-c2.webp',
 ];
 
 function ProjectDetail({ t, lang, slug }) {
