@@ -838,7 +838,28 @@ function HomeResumeModule({ t }) {
   );
 }
 
-function InProgressPage() {
+function InProgressPage({ mode = 'in-progress' }) {
+  const isWebsiteRedesign = mode === 'web-redesign';
+  const content = isWebsiteRedesign
+    ? {
+        eyebrow: 'WEBSITE REDESIGN / ORGANIZING',
+        title: '项目整理中',
+        intro: '网站视觉优化改版的案例内容正在整理中，后续会补充完整的设计过程、关键页面与改版成果。',
+        tags: ['内容整理中', '案例持续补充', '敬请期待'],
+        status: '正在整理项目内容',
+        update: '后续逐步上线',
+        caption: '项目整理中',
+      }
+    : {
+        eyebrow: 'MORE WORKS / IN PROGRESS',
+        title: '作品开发中',
+        intro: '这里会继续补充更多项目案例。当前先放一个默认展示页，用来承接后续的新项目内容与开发进度。',
+        tags: ['项目开发中', '内容持续补充', '默认展示页'],
+        status: '正在开发 / 整理内容',
+        update: '后续逐步上线',
+        caption: '项目开发中',
+      };
+
   return (
     <section className="in-progress-page section-shell" id="in-progress">
       <div className="detail-rail">
@@ -846,24 +867,20 @@ function InProgressPage() {
       </div>
       <div className="in-progress-shell">
         <div className="in-progress-copy">
-          <p className="in-progress-eyebrow">MORE WORKS / IN PROGRESS</p>
-          <h1>作品开发中</h1>
-          <p>
-            这里会继续补充更多项目案例。当前先放一个默认展示页，用来承接后续的新项目内容与开发进度。
-          </p>
+          <p className="in-progress-eyebrow">{content.eyebrow}</p>
+          <h1>{content.title}</h1>
+          <p>{content.intro}</p>
           <div className="in-progress-tags">
-            <span>项目开发中</span>
-            <span>内容持续补充</span>
-            <span>默认展示页</span>
+            {content.tags.map((tag) => <span key={tag}>{tag}</span>)}
           </div>
           <div className="in-progress-status">
             <div>
               <span>当前状态</span>
-              <strong>正在开发 / 整理内容</strong>
+              <strong>{content.status}</strong>
             </div>
             <div>
               <span>预计更新</span>
-              <strong>后续逐步上线</strong>
+              <strong>{content.update}</strong>
             </div>
           </div>
         </div>
@@ -872,7 +889,7 @@ function InProgressPage() {
           <div className="in-progress-miner-wrap">
         <img src="/assets/in-progress-miner.webp" alt="" className="in-progress-scene" loading="lazy" decoding="async" />
           </div>
-          <p className="in-progress-caption">项目开发中</p>
+          <p className="in-progress-caption">{content.caption}</p>
         </div>
       </div>
     </section>
@@ -1637,8 +1654,8 @@ function App() {
       <div className="grid-background" aria-hidden="true" />
       <Header lang={lang} setLang={setLang} t={t} />
       <main className={isProjectPage ? 'page-main' : ''}>
-        {projectSlug === 'in-progress' ? (
-          <InProgressPage />
+        {projectSlug === 'in-progress' || projectSlug === 'web-redesign' ? (
+          <InProgressPage mode={projectSlug} />
         ) : isProjectPage ? (
           <ProjectDetail t={t} lang={lang} slug={projectSlug} />
         ) : (
