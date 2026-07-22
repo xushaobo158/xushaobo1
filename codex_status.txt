@@ -1,0 +1,7 @@
+﻿pwd=C:\Users\xusha\Documents\个人站 2
+gitBranch=main
+gitStatusCount=0
+lastCommit=dfeadf3 Ensure social app images are removed
+indexSnippet=True
+distSnippet=True
+distExists=True

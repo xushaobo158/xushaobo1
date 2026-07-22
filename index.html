@@ -112,7 +112,147 @@
         });
       })();
     </script>
-</head>
+<!-- social-app-gallery-clean:start -->
+<style id="social-app-gallery-clean-style">
+html.social-app-gallery-clean #project-detail .project-image-gallery,
+html.social-app-gallery-clean #project-detail .project-image-gallery-item,
+html.social-app-gallery-clean #project-detail .case-gallery,
+html.social-app-gallery-clean #project-detail [class*="gallery"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+</style>
+<script id="social-app-gallery-clean-script">
+(() => {
+  const isSocialApp = () => window.location.pathname.replace(/\/+$/, "") === "/projects/social-app";
+  const clean = () => {
+    if (!isSocialApp()) {
+      document.documentElement.classList.remove("social-app-gallery-clean");
+      return;
+    }
+    document.documentElement.classList.add("social-app-gallery-clean");
+    document.querySelectorAll("#project-detail .project-image-gallery, #project-detail .project-image-gallery-item, #project-detail .case-gallery, #project-detail [class*=gallery]").forEach((node) => node.remove());
+  };
+  clean();
+  new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
+  window.addEventListener("popstate", clean);
+  window.addEventListener("hashchange", clean);
+})();
+</script>
+<!-- social-app-gallery-clean:end -->
+    <style>
+      html.social-project-images-hidden #project-detail .project-image-gallery {
+        display: none !important;
+      }
+    </style>
+    <script>
+      (() => {
+        const applySocialProjectImageState = () => {
+          const path = window.location.pathname.replace(/\/+$/, "");
+          document.documentElement.classList.toggle(
+            "social-project-images-hidden",
+            path === "/projects/social-app"
+          );
+        };
+
+        const patchHistory = (type) => {
+          const original = window.history[type];
+          window.history[type] = function patchedHistoryState() {
+            const result = original.apply(this, arguments);
+            applySocialProjectImageState();
+            return result;
+          };
+        };
+
+        patchHistory("pushState");
+        patchHistory("replaceState");
+        window.addEventListener("popstate", applySocialProjectImageState);
+        window.addEventListener("hashchange", applySocialProjectImageState);
+        applySocialProjectImageState();
+      })();
+    </script>
+    <!-- codex-social-gallery-hard-remove -->
+    <style>
+      html.codex-social-gallery-hard-remove #project-detail .project-image-gallery,
+      html.codex-social-gallery-hard-remove #project-detail .social-case-gallery,
+      html.codex-social-gallery-hard-remove #project-detail [class*="project-image-gallery"],
+      html.codex-social-gallery-hard-remove #project-detail [class*="social-case-gallery"] {
+        display: none !important;
+      }
+    </style>
+    <script>
+      (() => {
+        const updateCodexSocialGalleryHardRemove = () => {
+          const path = window.location.pathname.replace(/\/+$/, "");
+          document.documentElement.classList.toggle(
+            "codex-social-gallery-hard-remove",
+            path === "/projects/social-app"
+          );
+        };
+
+        const wrapHistory = (method) => {
+          const original = window.history[method];
+          window.history[method] = function codexSocialGalleryHistoryPatch() {
+            const result = original.apply(this, arguments);
+            queueMicrotask(updateCodexSocialGalleryHardRemove);
+            return result;
+          };
+        };
+
+        wrapHistory("pushState");
+        wrapHistory("replaceState");
+        window.addEventListener("popstate", updateCodexSocialGalleryHardRemove);
+        window.addEventListener("hashchange", updateCodexSocialGalleryHardRemove);
+        updateCodexSocialGalleryHardRemove();
+      })();
+    </script>
+    <!-- codex-social-gallery-hard-remove-final -->
+    <style>
+      html.codex-social-gallery-hard-remove-final #project-detail .project-image-gallery,
+      html.codex-social-gallery-hard-remove-final #project-detail .social-case-gallery,
+      html.codex-social-gallery-hard-remove-final #project-detail [class*="project-image-gallery"],
+      html.codex-social-gallery-hard-remove-final #project-detail [class*="social-case-gallery"],
+      html.codex-social-gallery-hard-remove-final #project-detail figure,
+      html.codex-social-gallery-hard-remove-final #project-detail img,
+      html.codex-social-gallery-hard-remove-final #project-detail picture,
+      html.codex-social-gallery-hard-remove-final #project-detail source,
+      html.codex-social-gallery-hard-remove-final #project-detail video {
+        display: none !important;
+      }
+    </style>
+    <script>
+      (() => {
+        const updateCodexSocialGalleryHardRemoveFinal = () => {
+          const path = window.location.pathname.replace(/\/+$/, "");
+          document.documentElement.classList.toggle(
+            "codex-social-gallery-hard-remove-final",
+            path === "/projects/social-app"
+          );
+        };
+
+        const wrapHistory = (method) => {
+          const original = window.history[method];
+          if (!original || original.__codexSocialGalleryHardRemoveFinal) return;
+          const patched = function codexSocialGalleryHistoryPatchFinal() {
+            const result = original.apply(this, arguments);
+            queueMicrotask(updateCodexSocialGalleryHardRemoveFinal);
+            return result;
+          };
+          patched.__codexSocialGalleryHardRemoveFinal = true;
+          window.history[method] = patched;
+        };
+
+        wrapHistory("pushState");
+        wrapHistory("replaceState");
+        window.addEventListener("popstate", updateCodexSocialGalleryHardRemoveFinal);
+        window.addEventListener("hashchange", updateCodexSocialGalleryHardRemoveFinal);
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", updateCodexSocialGalleryHardRemoveFinal);
+        }
+        updateCodexSocialGalleryHardRemoveFinal();
+      })();
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/route-entry.jsx"></script>
@@ -134,7 +274,66 @@
         window.addEventListener("popstate", clearSocialProjectImages);
       })();
     </script>
-  </body>
+  <!-- codex-social-project-image-removal-guard -->
+  <script>
+    (() => {
+      const SOCIAL_PROJECT_PATH = "/projects/social-app";
+
+      const isSocialProject = () =>
+        window.location.pathname.replace(/\/+$/, "") === SOCIAL_PROJECT_PATH;
+
+      const removeSocialProjectImages = () => {
+        if (!isSocialProject()) return;
+
+        const detail = document.querySelector("#project-detail");
+        if (!detail) return;
+
+        detail
+          .querySelectorAll(
+            ".project-image-gallery, .social-case-gallery, [class*='project-image-gallery'], [class*='social-case-gallery'], figure, picture, source, video, img"
+          )
+          .forEach((node) => node.remove());
+      };
+
+      const runRemoval = () => {
+        requestAnimationFrame(removeSocialProjectImages);
+        window.setTimeout(removeSocialProjectImages, 80);
+        window.setTimeout(removeSocialProjectImages, 300);
+        window.setTimeout(removeSocialProjectImages, 900);
+      };
+
+      const patchHistory = (method) => {
+        const original = window.history[method];
+        if (!original || original.__codexSocialProjectImageRemovalGuard) return;
+
+        const patched = function codexSocialProjectImageRemovalGuard() {
+          const result = original.apply(this, arguments);
+          runRemoval();
+          return result;
+        };
+
+        patched.__codexSocialProjectImageRemovalGuard = true;
+        window.history[method] = patched;
+      };
+
+      patchHistory("pushState");
+      patchHistory("replaceState");
+      window.addEventListener("popstate", runRemoval);
+      window.addEventListener("hashchange", runRemoval);
+      window.addEventListener("load", runRemoval);
+
+      const observer = new MutationObserver(runRemoval);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runRemoval);
+      }
+
+      runRemoval();
+    })();
+  </script>
+</body>
 </html>
+
 
 
