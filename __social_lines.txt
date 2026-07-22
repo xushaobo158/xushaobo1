@@ -1,0 +1,11 @@
+1345:const socialAppCaseImages = Object.freeze([]);
+1347:function ProjectDetail({ t, lang, slug }) {
+1355:  const imageCaseImages = slug === "file-tool" ? fileToolCaseImages : [];
+1361:    const galleryItems = imageGalleryRef.current.querySelectorAll('.project-image-gallery-item');
+1382:      <section className="project-image-page" id="project-detail">
+1386:        <div className="project-image-gallery" ref={imageGalleryRef}>
+1387:          {imageCaseImages.map((src, index) => (
+1388:            <figure className="project-image-gallery-item" key={src}>
+1394:                loading={index === 0 || index === imageCaseImages.length - 1 ? 'eager' : 'lazy'}
+1404:    <section className={`project-page section-shell ${slug === 'social-app' ? 'social-detail-page' : ''}`} id="project-detail">
+1653:          <ProjectDetail t={t} lang={lang} slug={projectSlug} />

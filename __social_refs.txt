@@ -1,0 +1,59 @@
+﻿
+  src\main.jsx:1342:  '/assets/file-tool/11-from-tool-platform.webp',
+  src\main.jsx:1343:];
+  src\main.jsx:1344:
+> src\main.jsx:1345:const socialAppCaseImages = Object.freeze([]);
+  src\main.jsx:1346:
+  src\main.jsx:1347:function ProjectDetail({ t, lang, slug }) {
+  src\main.jsx:1348:  const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
+  src\main.jsx:1349:  const card = t.cards.find((item) => item.href === `/projects/${slug}`);
+  src\main.jsx:1350:  const projectSlugs = ['social-app', 'file-tool', 'web-redesign'];
+  src\main.jsx:1352:  const nextSlug = currentIndex >= 0 ? projectSlugs[(currentIndex + 1) % projectSlugs.length] : pro
+jectSlugs[0];
+  src\main.jsx:1353:  const nextCard = t.cards.find((item) => item.href === `/projects/${nextSlug}`);
+  src\main.jsx:1354:  const imageGalleryRef = React.useRef(null);
+> src\main.jsx:1355:  const imageCaseImages = slug === "file-tool" ? fileToolCaseImages : [];
+  src\main.jsx:1356:  const isImageCase = slug === 'file-tool' || slug === 'social-app';
+  src\main.jsx:1357:
+  src\main.jsx:1358:  useEffect(() => {
+  src\main.jsx:1359:    if (!isImageCase || !imageGalleryRef.current) return undefined;
+  src\main.jsx:1360:
+> src\main.jsx:1361:    const galleryItems = imageGalleryRef.current.querySelectorAll('.project-image-gallery-item');
+  src\main.jsx:1362:    const observer = new IntersectionObserver(
+  src\main.jsx:1363:      (entries) => {
+  src\main.jsx:1364:        entries.forEach((entry) => {
+  src\main.jsx:1365:          if (entry.isIntersecting) {
+  src\main.jsx:1366:            entry.target.classList.add('is-visible');
+  src\main.jsx:1379:
+  src\main.jsx:1380:  if (isImageCase) {
+  src\main.jsx:1381:    return (
+> src\main.jsx:1382:      <section className="project-image-page" id="project-detail">
+  src\main.jsx:1383:        <div className="project-image-return-rail">
+  src\main.jsx:1384:          <DetailBackLink />
+  src\main.jsx:1385:        </div>
+> src\main.jsx:1386:        <div className="project-image-gallery" ref={imageGalleryRef}>
+> src\main.jsx:1387:          {imageCaseImages.map((src, index) => (
+> src\main.jsx:1388:            <figure className="project-image-gallery-item" key={src}>
+  src\main.jsx:1389:              <img
+  src\main.jsx:1390:                src={src}
+  src\main.jsx:1391:                alt={`${project.title}项目展示 ${index + 1}`}
+  src\main.jsx:1392:                decoding="async"
+  src\main.jsx:1393:                fetchPriority={index === 0 ? 'high' : 'auto'}
+> src\main.jsx:1394:                loading={index === 0 || index === imageCaseImages.length - 1 ? 'eager' : 'lazy'}
+  src\main.jsx:1395:              />
+  src\main.jsx:1396:            </figure>
+  src\main.jsx:1397:          ))}
+  src\main.jsx:1398:        </div>
+  src\main.jsx:1399:      </section>
+  src\main.jsx:1401:  }
+  src\main.jsx:1402:
+  src\main.jsx:1403:  return (
+> src\main.jsx:1404:    <section className={`project-page section-shell ${slug === 'social-app' ? 'social-detail-page' 
+: ''}`} id="project-detail">
+  src\main.jsx:1405:      <div className="detail-rail">
+  src\main.jsx:1406:        <DetailBackLink />
+  src\main.jsx:1407:      </div>
+  src\main.jsx:1408:      <article className="project-shell">
+  src\main.jsx:1409:        <div className="project-story">
+
+

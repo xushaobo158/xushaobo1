@@ -1,0 +1,4 @@
+?? __git_status.txt
+?? __social_asset_refs.json
+?? __social_lines.txt
+?? __social_refs.txt

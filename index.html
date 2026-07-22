@@ -27,6 +27,37 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/social-app-clear.css" />
     <script src="/social-app-clear.js"></script>
+    <style>
+      html.social-app-gallery-cleanup .project-image-gallery {
+        display: none !important;
+      }
+    </style>
+    <script>
+      (function () {
+        if (window.location.pathname !== "/projects/social-app") {
+          return;
+        }
+
+        document.documentElement.classList.add("social-app-gallery-cleanup");
+
+        var removeSocialProjectGallery = function () {
+          document.querySelectorAll(".project-image-gallery").forEach(function (node) {
+            node.remove();
+          });
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", removeSocialProjectGallery, { once: true });
+        } else {
+          removeSocialProjectGallery();
+        }
+
+        new MutationObserver(removeSocialProjectGallery).observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
