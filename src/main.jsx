@@ -1342,16 +1342,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/11-from-tool-platform.webp',
 ];
 
-const socialAppCaseImages = [
-  '/assets/social-app/01-c1.webp',
-  '/assets/social-app/02-c2.webp',
-  '/assets/social-app/03-c3.webp?v=20260718',
-  '/assets/social-app/04-c4.webp',
-  '/assets/social-app/05-c5.webp',
-  '/assets/social-app/06-c6.webp',
-  '/assets/social-app/07-c7.webp',
-  '/assets/social-app/08-c8.webp',
-];
+const socialAppCaseImages = [];
 
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
