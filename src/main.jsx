@@ -1342,7 +1342,7 @@ const fileToolCaseImages = [
   '/assets/file-tool/11-from-tool-platform.webp',
 ];
 
-const socialAppCaseImages = [];
+const socialAppCaseImages = Object.freeze([]);
 
 function ProjectDetail({ t, lang, slug }) {
   const project = projectPageContent[slug]?.[lang] ?? projectPageContent[slug]?.zh;
@@ -1352,7 +1352,7 @@ function ProjectDetail({ t, lang, slug }) {
   const nextSlug = currentIndex >= 0 ? projectSlugs[(currentIndex + 1) % projectSlugs.length] : projectSlugs[0];
   const nextCard = t.cards.find((item) => item.href === `/projects/${nextSlug}`);
   const imageGalleryRef = React.useRef(null);
-  const imageCaseImages = slug === 'file-tool' ? fileToolCaseImages : socialAppCaseImages;
+  const imageCaseImages = slug === "file-tool" ? fileToolCaseImages : [];
   const isImageCase = slug === 'file-tool' || slug === 'social-app';
 
   useEffect(() => {

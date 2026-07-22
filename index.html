@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
+<head>
+    <script>
+      (() => {
+        const path = window.location.pathname.replace(/\/+$/, "");
+        if (path === "/projects/social-app") {
+          window.location.replace(
+            `/projects/social-app/index.html${window.location.search}${window.location.hash}`,
+          );
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -20,6 +30,24 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/route-entry.jsx"></script>
+    <script>
+      (() => {
+        const clearSocialProjectImages = () => {
+          if (window.location.pathname !== "/projects/social-app") return;
+
+          document
+            .querySelectorAll("#project-detail .project-image-gallery")
+            .forEach((gallery) => gallery.remove());
+        };
+
+        clearSocialProjectImages();
+        new MutationObserver(clearSocialProjectImages).observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+        window.addEventListener("popstate", clearSocialProjectImages);
+      })();
+    </script>
   </body>
 </html>

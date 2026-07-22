@@ -1,0 +1,5 @@
+﻿status=FAIL: warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+
+verify={
+  "error": "Cannot find module 'playwright'\nRequire stack:\n- C:\\Users\\xusha\\Documents\\涓汉绔?2\\[eval]"
+}

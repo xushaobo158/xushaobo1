@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="不夜星球社交产品体验设计项目" />
+    <title>不夜星球社交产品体验设计 | Xushaobo</title>
+    <style>
+      :root {
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        color: #111;
+        background: #f7f5ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: #f7f5ef;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: #f7f5ef;
+      }
+
+      .site-header,
+      .project-main {
+        width: min(calc(100% - 32px), 1180px);
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 2;
+        margin-top: 16px;
+        border: 1px solid #dedbd3;
+        background: rgba(247, 245, 239, 0.96);
+      }
+
+      .header-inner {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 0 24px;
+      }
+
+      .brand,
+      .site-nav a,
+      .back-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand {
+        font-weight: 800;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-weight: 700;
+      }
+
+      .project-main {
+        margin-top: 16px;
+        margin-bottom: 72px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        margin: 4px 0 16px;
+        font-weight: 700;
+      }
+
+      .case-gallery {
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .case-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        border: 0;
+      }
+
+      @media (max-width: 720px) {
+        .site-header,
+        .project-main {
+          width: min(calc(100% - 20px), 1180px);
+        }
+
+        .header-inner {
+          min-height: 64px;
+          flex-wrap: wrap;
+          gap: 10px;
+          padding: 10px 14px;
+        }
+
+        .site-nav {
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .project-main {
+          margin-top: 10px;
+          margin-bottom: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">Xushaobo</a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="/#top">首页</a>
+          <a href="/#resume-preview">简历</a>
+          <a href="/#work">作品</a>
+          <a href="/#contact">联系</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="project-main">
+      <a class="back-link" href="/#work" aria-label="返回首页">← 返回首页</a>
+      <section class="case-gallery" aria-label="不夜星球社交产品体验设计项目">
+        <img
+          class="case-image"
+          src="./images/social-app-01.webp"
+          width="1754"
+          height="1408"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          alt="不夜星球社交产品体验设计项目首图"
+        />
+      </section>
+    </main>
+  </body>
+</html>
