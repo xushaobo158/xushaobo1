@@ -1382,21 +1382,7 @@ function ProjectDetail({ t, lang, slug }) {
       <section className="project-image-page" id="project-detail">
         <div className="project-image-return-rail">
           <DetailBackLink />
-        </div>
-        <div className="project-image-gallery" ref={imageGalleryRef}>
-          {imageCaseImages.map((src, index) => (
-            <figure className="project-image-gallery-item" key={src}>
-              <img
-                src={src}
-                alt={`${project.title}项目展示 ${index + 1}`}
-                decoding="async"
-                fetchPriority={index === 0 ? 'high' : 'auto'}
-                loading={index === 0 || index === imageCaseImages.length - 1 ? 'eager' : 'lazy'}
-              />
-            </figure>
-          ))}
-        </div>
-      </section>
+        </div></section>
     );
   }
 
@@ -1663,3 +1649,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />);
+

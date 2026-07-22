@@ -73,34 +73,46 @@
         border: 0 !important;
         overflow: hidden !important;
       }
+      html.social-app-hard-clean #project-detail {
+        background: #fff !important;
+      }
     </style>
     <script id="social-app-hard-clean-script">
       (function () {
-        if (!/^\/projects\/social-app\/?$/.test(window.location.pathname)) {
-          return;
-        }
-
-        document.documentElement.classList.add("social-app-hard-clean");
-
+        var isSocialApp = function () {
+          return /^\/projects\/social-app\/?$/.test(window.location.pathname);
+        };
         var removeSocialAppImages = function () {
+          if (!isSocialApp()) {
+            document.documentElement.classList.remove("social-app-hard-clean");
+            return;
+          }
+          document.documentElement.classList.add("social-app-hard-clean");
           document.querySelectorAll("#project-detail img, .project-image-gallery, .project-image-gallery-item").forEach(function (node) {
             node.remove();
           });
         };
-
+        ["pushState", "replaceState"].forEach(function (name) {
+          var original = history[name];
+          history[name] = function () {
+            var result = original.apply(this, arguments);
+            setTimeout(removeSocialAppImages, 0);
+            return result;
+          };
+        });
+        window.addEventListener("popstate", removeSocialAppImages);
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", removeSocialAppImages, { once: true });
         } else {
           removeSocialAppImages();
         }
-
         new MutationObserver(removeSocialAppImages).observe(document.documentElement, {
           childList: true,
           subtree: true
         });
       })();
     </script>
-  </head>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/route-entry.jsx"></script>
@@ -124,4 +136,5 @@
     </script>
   </body>
 </html>
+
 
