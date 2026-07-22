@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
     <script>
@@ -15,9 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="徐少柏 / Xushaobo, Product and UX Designer portfolio for internet product roles."
+      content="寰愬皯鏌?/ Xushaobo, Product and UX Designer portfolio for internet product roles."
     />
-    <title>徐少柏 / Xushaobo - Product UX Designer</title>
+    <title>寰愬皯鏌?/ Xushaobo - Product UX Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,6 +58,48 @@
         });
       })();
     </script>
+      <style id="social-app-hard-clean-style">
+      html.social-app-hard-clean #project-detail img,
+      html.social-app-hard-clean .project-image-gallery,
+      html.social-app-hard-clean .project-image-gallery-item {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        overflow: hidden !important;
+      }
+    </style>
+    <script id="social-app-hard-clean-script">
+      (function () {
+        if (!/^\/projects\/social-app\/?$/.test(window.location.pathname)) {
+          return;
+        }
+
+        document.documentElement.classList.add("social-app-hard-clean");
+
+        var removeSocialAppImages = function () {
+          document.querySelectorAll("#project-detail img, .project-image-gallery, .project-image-gallery-item").forEach(function (node) {
+            node.remove();
+          });
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", removeSocialAppImages, { once: true });
+        } else {
+          removeSocialAppImages();
+        }
+
+        new MutationObserver(removeSocialAppImages).observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
@@ -82,3 +124,4 @@
     </script>
   </body>
 </html>
+
